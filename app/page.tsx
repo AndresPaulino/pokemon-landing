@@ -73,9 +73,70 @@ export default function Page() {
             data-oid="kzqzfo5"
         >
             {/* Animated Background */}
+            <div className="fixed inset-0 overflow-hidden pointer-events-none" data-oid="qqag05k">
+                <div
+                    className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
+                    data-oid="pl82.tm"
+                ></div>
+                <div
+                    className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"
+                    data-oid="5af-1uk"
+                ></div>
+                <div
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"
+                    data-oid="d3tnbns"
+                ></div>
+            </div>
 
+            {/* Navigation */}
+            <nav
+                className={`fixed top-0 left-0 right-0 z-50 py-6 px-8 flex justify-between items-center transition-all duration-300 ${
+                    scrollY > 50
+                        ? 'backdrop-blur-md bg-black/40 border-b border-white/20 shadow-lg'
+                        : 'backdrop-blur-sm bg-black/10 border-b border-white/5'
+                }`}
+                data-oid="44f18sg"
+            >
+                <div
+                    className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                    data-oid="h26va_4"
+                >
+                    PokeCard Studio
+                </div>
+                <div className="hidden md:flex space-x-8" data-oid="y53goex">
+                    <a
+                        href="#gallery"
+                        className="hover:text-purple-400 transition-colors duration-300"
+                        data-oid=":3i7snc"
+                    >
+                        Gallery
+                    </a>
+                    <a
+                        href="#process"
+                        className="hover:text-purple-400 transition-colors duration-300"
+                        data-oid="uq6f2d7"
+                    >
+                        Process
+                    </a>
+                    <a
+                        href="#contact"
+                        className="hover:text-purple-400 transition-colors duration-300"
+                        data-oid="-ysln01"
+                    >
+                        Contact
+                    </a>
+                </div>
+                <button
+                    className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                    data-oid="e.ha2ip"
+                >
+                    Order Now
+                </button>
+            </nav>
+
+            {/* Hero Section */}
             <section
-                className="relative z-10 min-h-screen flex items-center justify-center px-8 w-[1424px]"
+                className="relative z-10 min-h-screen flex items-center justify-center px-8 pt-24"
                 data-oid="w_opkng"
                 key="olk-4H9F"
             >
@@ -119,64 +180,6 @@ export default function Page() {
                     </div>
                 </div>
             </section>
-            <div className="fixed inset-0 overflow-hidden pointer-events-none" data-oid="qqag05k">
-                <div
-                    className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
-                    data-oid="pl82.tm"
-                ></div>
-                <div
-                    className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"
-                    data-oid="5af-1uk"
-                ></div>
-                <div
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"
-                    data-oid="d3tnbns"
-                ></div>
-            </div>
-
-            {/* Navigation */}
-            <nav
-                className="relative z-50 py-6 px-8 flex justify-between items-center backdrop-blur-sm bg-black/20 border-b border-white/10"
-                data-oid="44f18sg"
-            >
-                <div
-                    className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-                    data-oid="h26va_4"
-                >
-                    PokeCard Studio
-                </div>
-                <div className="hidden md:flex space-x-8" data-oid="y53goex">
-                    <a
-                        href="#gallery"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid=":3i7snc"
-                    >
-                        Gallery
-                    </a>
-                    <a
-                        href="#process"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="uq6f2d7"
-                    >
-                        Process
-                    </a>
-                    <a
-                        href="#contact"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="-ysln01"
-                    >
-                        Contact
-                    </a>
-                </div>
-                <button
-                    className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
-                    data-oid="e.ha2ip"
-                >
-                    Order Now
-                </button>
-            </nav>
-
-            {/* Hero Section */}
 
             {/* Features Section */}
             <section className="relative z-10 py-20 px-8" data-oid=":k_zdk8">
