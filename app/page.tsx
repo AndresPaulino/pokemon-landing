@@ -73,6 +73,52 @@ export default function Page() {
             data-oid="kzqzfo5"
         >
             {/* Animated Background */}
+
+            <section
+                className="relative z-10 min-h-screen flex items-center justify-center px-8 w-[1424px]"
+                data-oid="w_opkng"
+                key="olk-4H9F"
+            >
+                <div
+                    className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                    data-oid="lqouza2"
+                >
+                    <h1
+                        className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent leading-tight"
+                        data-oid="htjvynx"
+                    >
+                        Transform Into
+                        <br data-oid="2.31jsv" />
+                        <span className="text-yellow-400" data-oid="4lqa8h_">
+                            Pokemon Master
+                        </span>
+                    </h1>
+                    <p
+                        className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
+                        data-oid="vw9swq9"
+                    >
+                        Send us your photo and watch as we transform you into an anime-style Pokemon
+                        trainer on a custom, handcrafted card
+                    </p>
+                    <div
+                        className="flex flex-col sm:flex-row gap-4 justify-center"
+                        data-oid=":nfoc8w"
+                    >
+                        <button
+                            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                            data-oid="st0y3o5"
+                        >
+                            Create My Card
+                        </button>
+                        <button
+                            className="px-8 py-4 border-2 border-purple-400 rounded-full text-lg font-semibold hover:bg-purple-400 hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
+                            data-oid="juncul2"
+                        >
+                            View Gallery
+                        </button>
+                    </div>
+                </div>
+            </section>
             <div className="fixed inset-0 overflow-hidden pointer-events-none" data-oid="qqag05k">
                 <div
                     className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
@@ -131,50 +177,6 @@ export default function Page() {
             </nav>
 
             {/* Hero Section */}
-            <section
-                className="relative z-10 min-h-screen flex items-center justify-center px-8"
-                data-oid="w_opkng"
-            >
-                <div
-                    className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                    data-oid="lqouza2"
-                >
-                    <h1
-                        className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent leading-tight"
-                        data-oid="htjvynx"
-                    >
-                        Transform Into
-                        <br data-oid="2.31jsv" />
-                        <span className="text-yellow-400" data-oid="4lqa8h_">
-                            Pokemon Master
-                        </span>
-                    </h1>
-                    <p
-                        className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
-                        data-oid="vw9swq9"
-                    >
-                        Send us your photo and watch as we transform you into an anime-style Pokemon
-                        trainer on a custom, handcrafted card
-                    </p>
-                    <div
-                        className="flex flex-col sm:flex-row gap-4 justify-center"
-                        data-oid=":nfoc8w"
-                    >
-                        <button
-                            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
-                            data-oid="st0y3o5"
-                        >
-                            Create My Card
-                        </button>
-                        <button
-                            className="px-8 py-4 border-2 border-purple-400 rounded-full text-lg font-semibold hover:bg-purple-400 hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
-                            data-oid="juncul2"
-                        >
-                            View Gallery
-                        </button>
-                    </div>
-                </div>
-            </section>
 
             {/* Features Section */}
             <section className="relative z-10 py-20 px-8" data-oid=":k_zdk8">
@@ -230,9 +232,7 @@ export default function Page() {
                             <div
                                 key={card.id}
                                 className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-sm border border-white/10 hover:border-purple-400/50 transition-all duration-500 transform hover:scale-105 hover:rotate-1"
-                                style={{
-                                    animationDelay: `${index * 200}ms`,
-                                }}
+                                style={{ animationDelay: `${index * 200}ms` }}
                                 data-oid="ml4m3w0"
                             >
                                 <div
