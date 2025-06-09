@@ -35,50 +35,50 @@ export default function Page() {
     const cardExamples = [
         {
             id: 1,
-            title: 'Fire Dragon Trainer',
-            image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=400&fit=crop',
+            title: 'Asher',
+            image: '/images/Asher.png',
             className: 'absolute top-10 left-[20%]',
             initialRotation: -6,
         },
         {
             id: 2,
-            title: 'Water Spirit Master',
-            image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=400&fit=crop',
+            title: 'Estee',
+            image: '/images/Estee.png',
             className: 'absolute top-40 left-[25%]',
             initialRotation: 9,
         },
         {
             id: 3,
-            title: 'Electric Storm Warrior',
-            image: 'https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=300&h=400&fit=crop',
+            title: 'Hector',
+            image: '/images/Hector.png',
             className: 'absolute top-5 left-[40%]',
             initialRotation: -4,
         },
         {
             id: 4,
-            title: 'Nature Guardian',
-            image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=400&fit=crop',
+            title: 'Rave_Estee',
+            image: '/images/Rave_Estee.png',
             className: 'absolute top-32 left-[55%]',
             initialRotation: 13,
         },
         {
             id: 5,
-            title: 'Shadow Mystic',
-            image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=400&fit=crop',
+            title: 'Rave_Lukas',
+            image: '/images/Rave_Lukas.png',
             className: 'absolute top-20 right-[35%]',
             initialRotation: -7,
         },
         {
             id: 6,
-            title: 'Ice Crystal Sage',
-            image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=300&h=400&fit=crop',
+            title: 'Olivia',
+            image: '/images/Olivia.png',
             className: 'absolute top-24 left-[45%]',
             initialRotation: 3,
         },
         {
             id: 7,
-            title: 'Steel Wing Champion',
-            image: 'https://images.unsplash.com/photo-1494790108755-2616c09d6d0c?w=300&h=400&fit=crop',
+            title: 'Juliette',
+            image: '/images/Juliette.png',
             className: 'absolute top-8 left-[30%]',
             initialRotation: -10,
         },
@@ -302,7 +302,7 @@ export default function Page() {
                     </p>
 
                     <DraggableCardContainer
-                        className="relative flex min-h-screen w-full items-center justify-center overflow-clip"
+                        className="relative flex min-h-screen w-full items-center justify-center overflow-clip rounded-2xl"
                         data-oid="vvhfdlg"
                     >
                         {cardExamples.map((card, index) => (
