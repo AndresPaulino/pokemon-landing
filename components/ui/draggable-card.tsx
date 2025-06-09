@@ -14,9 +14,13 @@ import {
 export const DraggableCardBody = ({
     className,
     children,
+    onMouseDown,
+    style,
 }: {
     className?: string;
     children?: React.ReactNode;
+    onMouseDown?: () => void;
+    style?: React.CSSProperties;
 }) => {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -34,9 +38,9 @@ export const DraggableCardBody = ({
     const velocityY = useVelocity(mouseY);
 
     const springConfig = {
-        stiffness: 100,
-        damping: 20,
-        mass: 0.5,
+        stiffness: 300,
+        damping: 30,
+        mass: 0.1,
     };
 
     const rotateX = useSpring(useTransform(mouseY, [-300, 300], [25, -25]), springConfig);
@@ -99,8 +103,11 @@ export const DraggableCardBody = ({
             ref={cardRef}
             drag
             dragConstraints={constraints}
+            dragElastic={0}
+            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
             onDragStart={() => {
                 document.body.style.cursor = 'grabbing';
+                onMouseDown?.();
             }}
             onDragEnd={(event, info) => {
                 document.body.style.cursor = 'default';
@@ -146,6 +153,7 @@ export const DraggableCardBody = ({
                 rotateY,
                 opacity,
                 willChange: 'transform',
+                ...style,
             }}
             animate={controls}
             whileHover={{ scale: 1.02 }}
