@@ -14,9 +14,11 @@ import {
 export const DraggableCardBody = ({
     className,
     children,
+    initialRotation = 0,
 }: {
     className?: string;
     children?: React.ReactNode;
+    initialRotation?: number;
 }) => {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -145,6 +147,7 @@ export const DraggableCardBody = ({
                 rotateX,
                 rotateY,
                 opacity,
+                rotate: initialRotation,
                 willChange: 'transform',
             }}
             animate={controls}
@@ -152,7 +155,7 @@ export const DraggableCardBody = ({
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             className={cn(
-                'relative min-h-96 w-80 overflow-hidden rounded-md bg-neutral-100 p-6 shadow-2xl transform-3d dark:bg-neutral-900',
+                'relative min-h-96 w-80 overflow-hidden rounded-md bg-neutral-100 shadow-2xl transform-3d dark:bg-neutral-900',
                 className,
             )}
             data-oid="ejogp7e"

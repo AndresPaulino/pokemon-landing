@@ -37,43 +37,50 @@ export default function Page() {
             id: 1,
             title: 'Fire Dragon Trainer',
             image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=400&fit=crop',
-            className: 'absolute top-10 left-[20%] rotate-[-5deg]',
+            className: 'absolute top-10 left-[20%]',
+            initialRotation: -6,
         },
         {
             id: 2,
             title: 'Water Spirit Master',
             image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=400&fit=crop',
-            className: 'absolute top-40 left-[25%] rotate-[-7deg]',
+            className: 'absolute top-40 left-[25%]',
+            initialRotation: 9,
         },
         {
             id: 3,
             title: 'Electric Storm Warrior',
             image: 'https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=300&h=400&fit=crop',
-            className: 'absolute top-5 left-[40%] rotate-[8deg]',
+            className: 'absolute top-5 left-[40%]',
+            initialRotation: -4,
         },
         {
             id: 4,
             title: 'Nature Guardian',
             image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=400&fit=crop',
-            className: 'absolute top-32 left-[55%] rotate-[10deg]',
+            className: 'absolute top-32 left-[55%]',
+            initialRotation: 13,
         },
         {
             id: 5,
             title: 'Shadow Mystic',
             image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=400&fit=crop',
-            className: 'absolute top-20 right-[35%] rotate-[2deg]',
+            className: 'absolute top-20 right-[35%]',
+            initialRotation: -7,
         },
         {
             id: 6,
             title: 'Ice Crystal Sage',
             image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=300&h=400&fit=crop',
-            className: 'absolute top-24 left-[45%] rotate-[-7deg]',
+            className: 'absolute top-24 left-[45%]',
+            initialRotation: 3,
         },
         {
             id: 7,
             title: 'Steel Wing Champion',
             image: 'https://images.unsplash.com/photo-1494790108755-2616c09d6d0c?w=300&h=400&fit=crop',
-            className: 'absolute top-8 left-[30%] rotate-[4deg]',
+            className: 'absolute top-8 left-[30%]',
+            initialRotation: -10,
         },
     ];
 
@@ -302,12 +309,13 @@ export default function Page() {
                             <DraggableCardBody
                                 key={card.id}
                                 className={card.className}
+                                initialRotation={card.initialRotation}
                                 data-oid=":saj-h0"
                             >
                                 <img
                                     src={card.image}
                                     alt={card.title}
-                                    className="pointer-events-none relative z-10 h-80 w-80 object-cover"
+                                    className="pointer-events-none relative z-10 h-full w-full object-cover rounded-md"
                                     data-oid="ixpt_ox"
                                 />
                             </DraggableCardBody>
