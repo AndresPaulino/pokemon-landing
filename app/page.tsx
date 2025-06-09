@@ -1,10 +1,28 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import {
+    Navbar,
+    NavBody,
+    NavItems,
+    MobileNav,
+    MobileNavHeader,
+    MobileNavMenu,
+    MobileNavToggle,
+    NavbarLogo,
+    NavbarButton,
+} from '@/components/ui/resizable-navbar';
 
 export default function Page() {
     const [isVisible, setIsVisible] = useState(false);
     const [scrollY, setScrollY] = useState(0);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const navItems = [
+        { name: 'Gallery', link: '#gallery' },
+        { name: 'Process', link: '#process' },
+        { name: 'Contact', link: '#contact' },
+    ];
 
     useEffect(() => {
         setIsVisible(true);
@@ -89,50 +107,76 @@ export default function Page() {
             </div>
 
             {/* Navigation */}
-            <nav
-                className={`fixed top-0 left-0 right-0 z-50 py-6 px-8 flex justify-between items-center transition-all duration-300 ${
-                    scrollY > 50
-                        ? 'backdrop-blur-md bg-black/40 border-b border-white/20 shadow-lg'
-                        : 'backdrop-blur-sm bg-black/10 border-b border-white/5'
-                }`}
-                data-oid="44f18sg"
-            >
-                <div
-                    className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-                    data-oid="h26va_4"
-                >
-                    PokeCard Studio
-                </div>
-                <div className="hidden md:flex space-x-8" data-oid="y53goex">
+            <Navbar className="fixed top-0 left-0 right-0 z-50" data-oid="fl4::ck">
+                <NavBody data-oid="psq.1:a">
                     <a
-                        href="#gallery"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid=":3i7snc"
+                        href="#"
+                        className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
+                        data-oid="9pa9-t4"
                     >
-                        Gallery
+                        <div
+                            className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                            data-oid="beek17h"
+                        >
+                            PokeCard Studio
+                        </div>
                     </a>
-                    <a
-                        href="#process"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="uq6f2d7"
+                    <NavItems items={navItems} data-oid="lh3aizi" />
+                    <NavbarButton
+                        variant="gradient"
+                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                        data-oid="6xu8a0t"
                     >
-                        Process
-                    </a>
-                    <a
-                        href="#contact"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="-ysln01"
+                        Order Now
+                    </NavbarButton>
+                </NavBody>
+
+                <MobileNav data-oid="6hbk2qo">
+                    <MobileNavHeader data-oid="2prncbv">
+                        <a
+                            href="#"
+                            className="flex items-center space-x-2 px-2 py-1 text-sm font-normal"
+                            data-oid="a9.7vw-"
+                        >
+                            <div
+                                className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                                data-oid="utjmb2w"
+                            >
+                                PokeCard Studio
+                            </div>
+                        </a>
+                        <MobileNavToggle
+                            isOpen={isMobileMenuOpen}
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            data-oid="4lxnzcf"
+                        />
+                    </MobileNavHeader>
+                    <MobileNavMenu
+                        isOpen={isMobileMenuOpen}
+                        onClose={() => setIsMobileMenuOpen(false)}
+                        data-oid="7mvi_t:"
                     >
-                        Contact
-                    </a>
-                </div>
-                <button
-                    className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
-                    data-oid="e.ha2ip"
-                >
-                    Order Now
-                </button>
-            </nav>
+                        {navItems.map((item, idx) => (
+                            <a
+                                key={idx}
+                                href={item.link}
+                                className="text-neutral-700 dark:text-neutral-300 hover:text-purple-400 transition-colors duration-300"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                data-oid="g1x:avw"
+                            >
+                                {item.name}
+                            </a>
+                        ))}
+                        <NavbarButton
+                            variant="gradient"
+                            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white mt-4"
+                            data-oid="xuekzh3"
+                        >
+                            Order Now
+                        </NavbarButton>
+                    </MobileNavMenu>
+                </MobileNav>
+            </Navbar>
 
             {/* Hero Section */}
             <section
