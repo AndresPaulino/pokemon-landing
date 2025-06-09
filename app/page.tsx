@@ -18,12 +18,6 @@ export default function Page() {
     const [isVisible, setIsVisible] = useState(false);
     const [scrollY, setScrollY] = useState(0);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [cardZIndexes, setCardZIndexes] = useState<{ [key: number]: number }>({});
-
-    const bringToFront = (cardId: number) => {
-        const maxZ = Math.max(...Object.values(cardZIndexes), cardExamples.length) + 1;
-        setCardZIndexes((prev) => ({ ...prev, [cardId]: maxZ }));
-    };
 
     const navItems = [
         { name: 'Gallery', link: '#gallery' },
@@ -43,63 +37,42 @@ export default function Page() {
             id: 1,
             title: 'Fire Dragon Trainer',
             image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=400&fit=crop',
-            rarity: 'Legendary',
-            hp: '180',
-            type: 'Fire',
             className: 'absolute top-10 left-[20%] rotate-[-5deg]',
         },
         {
             id: 2,
             title: 'Water Spirit Master',
             image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=400&fit=crop',
-            rarity: 'Rare',
-            hp: '150',
-            type: 'Water',
             className: 'absolute top-40 left-[25%] rotate-[-7deg]',
         },
         {
             id: 3,
             title: 'Electric Storm Warrior',
             image: 'https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=300&h=400&fit=crop',
-            rarity: 'Ultra Rare',
-            hp: '200',
-            type: 'Electric',
             className: 'absolute top-5 left-[40%] rotate-[8deg]',
         },
         {
             id: 4,
             title: 'Nature Guardian',
             image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=400&fit=crop',
-            rarity: 'Rare',
-            hp: '160',
-            type: 'Grass',
             className: 'absolute top-32 left-[55%] rotate-[10deg]',
         },
         {
             id: 5,
             title: 'Shadow Mystic',
             image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=400&fit=crop',
-            rarity: 'Ultra Rare',
-            hp: '190',
-            type: 'Psychic',
             className: 'absolute top-20 right-[35%] rotate-[2deg]',
         },
         {
             id: 6,
             title: 'Ice Crystal Sage',
             image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=300&h=400&fit=crop',
-            rarity: 'Legendary',
-            hp: '175',
-            type: 'Ice',
             className: 'absolute top-24 left-[45%] rotate-[-7deg]',
         },
         {
             id: 7,
             title: 'Steel Wing Champion',
             image: 'https://images.unsplash.com/photo-1494790108755-2616c09d6d0c?w=300&h=400&fit=crop',
-            rarity: 'Epic',
-            hp: '220',
-            type: 'Steel',
             className: 'absolute top-8 left-[30%] rotate-[4deg]',
         },
     ];
@@ -328,120 +301,14 @@ export default function Page() {
                         {cardExamples.map((card, index) => (
                             <DraggableCardBody
                                 key={card.id}
-                                className={`${card.className} bg-gradient-to-br from-gray-900/90 via-purple-900/80 to-pink-900/80 backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 cursor-grab active:cursor-grabbing`}
-                                style={{
-                                    zIndex: cardZIndexes[card.id] || cardExamples.length - index,
-                                }}
-                                onMouseDown={() => bringToFront(card.id)}
-                                data-oid="..1vpbc"
+                                className={card.className}
+                                data-oid=":saj-h0"
                             >
-                                {/* Card Image */}
-                                <div
-                                    className="aspect-[3/4] relative overflow-hidden rounded-lg mb-4"
-                                    data-oid="lei643x"
-                                >
-                                    <img
-                                        src={card.image}
-                                        alt={card.title}
-                                        className="w-full h-full object-cover"
-                                        draggable={false}
-                                        data-oid="cult5jh"
-                                    />
-
-                                    {/* Type Badge */}
-                                    <div className="absolute top-3 right-3" data-oid="m2c0ll8">
-                                        <span
-                                            className={`px-2 py-1 rounded-full text-xs font-semibold text-white shadow-lg ${
-                                                card.type === 'Fire'
-                                                    ? 'bg-red-500'
-                                                    : card.type === 'Water'
-                                                      ? 'bg-blue-500'
-                                                      : card.type === 'Electric'
-                                                        ? 'bg-yellow-500'
-                                                        : card.type === 'Grass'
-                                                          ? 'bg-green-500'
-                                                          : card.type === 'Psychic'
-                                                            ? 'bg-purple-500'
-                                                            : card.type === 'Ice'
-                                                              ? 'bg-cyan-500'
-                                                              : card.type === 'Steel'
-                                                                ? 'bg-gray-500'
-                                                                : 'bg-gray-600'
-                                            }`}
-                                            data-oid="_m83iz2"
-                                        >
-                                            {card.type}
-                                        </span>
-                                    </div>
-
-                                    {/* Rarity Glow */}
-                                    <div
-                                        className={`absolute inset-0 pointer-events-none opacity-20 ${
-                                            card.rarity === 'Legendary'
-                                                ? 'bg-gradient-to-t from-yellow-400/30 to-transparent'
-                                                : card.rarity === 'Epic'
-                                                  ? 'bg-gradient-to-t from-purple-400/30 to-transparent'
-                                                  : card.rarity === 'Ultra Rare'
-                                                    ? 'bg-gradient-to-t from-pink-400/30 to-transparent'
-                                                    : 'bg-gradient-to-t from-blue-400/30 to-transparent'
-                                        }`}
-                                        data-oid="pdu12vh"
-                                    />
-                                </div>
-
-                                {/* Card Details */}
-                                <div className="space-y-3" data-oid=":-s.943">
-                                    <h3
-                                        className="font-bold text-xl text-white leading-tight"
-                                        data-oid="2mi8m-0"
-                                    >
-                                        {card.title}
-                                    </h3>
-
-                                    <div
-                                        className="flex justify-between items-center"
-                                        data-oid="mv:c_uf"
-                                    >
-                                        <span
-                                            className={`text-sm font-semibold px-2 py-1 rounded ${
-                                                card.rarity === 'Legendary'
-                                                    ? 'bg-yellow-500/20 text-yellow-300'
-                                                    : card.rarity === 'Epic'
-                                                      ? 'bg-purple-500/20 text-purple-300'
-                                                      : card.rarity === 'Ultra Rare'
-                                                        ? 'bg-pink-500/20 text-pink-300'
-                                                        : 'bg-blue-500/20 text-blue-300'
-                                            }`}
-                                            data-oid="rbgav6a"
-                                        >
-                                            {card.rarity}
-                                        </span>
-                                        <span
-                                            className="text-sm font-bold text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded"
-                                            data-oid="rg7-z7f"
-                                        >
-                                            HP {card.hp}
-                                        </span>
-                                    </div>
-
-                                    {/* Pokemon Card Style Elements */}
-                                    <div
-                                        className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-50"
-                                        data-oid="t91jd3a"
-                                    />
-
-                                    <div
-                                        className="text-xs text-gray-400 text-center"
-                                        data-oid="x2r5-vr"
-                                    >
-                                        Custom Pokemon Trainer Card
-                                    </div>
-                                </div>
-
-                                {/* Hover Shine Effect */}
-                                <div
-                                    className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-purple-500/10 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-md"
-                                    data-oid="947fd-p"
+                                <img
+                                    src={card.image}
+                                    alt={card.title}
+                                    className="pointer-events-none relative z-10 h-80 w-80 object-cover"
+                                    data-oid="ixpt_ox"
                                 />
                             </DraggableCardBody>
                         ))}
