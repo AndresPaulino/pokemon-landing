@@ -15,41 +15,42 @@ import {
 import { DraggableCardBody, DraggableCardContainer } from '@/components/ui/draggable-card';
 import { Camera, Sparkles, Package, Settings, Zap } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { WavyBackground } from '@/components/ui/wavy-background';
 
 function HowItWorksGrid() {
     return (
         <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
             <ProcessGridItem
                 area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
-                icon={<Camera className="h-4 w-4 text-black dark:text-neutral-400" />}
+                icon={<Camera className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
                 title="Upload Your Photo"
                 description="Send us a clear photo of yourself that you'd like transformed into stunning anime-style artwork"
             />
 
             <ProcessGridItem
                 area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
-                icon={<Sparkles className="h-4 w-4 text-black dark:text-neutral-400" />}
+                icon={<Sparkles className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
                 title="AI Anime Transformation"
                 description="Our advanced AI transforms your photo into beautiful anime-style artwork perfect for a Pokemon trainer card"
             />
 
             <ProcessGridItem
                 area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
-                icon={<Settings className="h-4 w-4 text-black dark:text-neutral-400" />}
+                icon={<Settings className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
                 title="Custom Card Design"
                 description="We design your unique Pokemon card with custom stats, moves, and Pokemon trainer details"
             />
 
             <ProcessGridItem
                 area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
-                icon={<Zap className="h-4 w-4 text-black dark:text-neutral-400" />}
+                icon={<Zap className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
                 title="Premium Quality Print"
                 description="Each card is printed on high-quality cardstock with professional finishes for an authentic feel"
             />
 
             <ProcessGridItem
                 area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
-                icon={<Package className="h-4 w-4 text-black dark:text-neutral-400" />}
+                icon={<Package className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
                 title="Fast & Secure Shipping"
                 description="Your custom Pokemon trainer card is carefully packaged and shipped within 5-7 business days"
             />
@@ -67,7 +68,7 @@ interface ProcessGridItemProps {
 const ProcessGridItem = ({ area, icon, title, description }: ProcessGridItemProps) => {
     return (
         <li className={`min-h-[14rem] list-none ${area}`}>
-            <div className="relative h-full rounded-2xl border border-white/10 p-2 md:rounded-3xl md:p-3">
+            <div className="relative h-full rounded-2xl border border-amber-500/20 p-2 md:rounded-3xl md:p-3">
                 <GlowingEffect
                     spread={40}
                     glow={true}
@@ -75,16 +76,16 @@ const ProcessGridItem = ({ area, icon, title, description }: ProcessGridItemProp
                     proximity={64}
                     inactiveZone={0.01}
                 />
-                <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
+                <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 md:p-6 shadow-2xl shadow-amber-500/5">
                     <div className="relative flex flex-1 flex-col justify-between gap-3">
-                        <div className="w-fit rounded-lg border border-purple-400/50 bg-purple-500/10 p-2">
+                        <div className="w-fit rounded-lg border border-amber-400/50 bg-amber-500/10 p-2">
                             {icon}
                         </div>
                         <div className="space-y-3">
-                            <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-purple-300 md:text-2xl/[1.875rem]">
+                            <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-amber-300 md:text-2xl/[1.875rem]">
                                 {title}
                             </h3>
-                            <h2 className="font-sans text-sm/[1.125rem] text-gray-400 md:text-base/[1.375rem] [&_b]:md:font-semibold [&_strong]:md:font-semibold">
+                            <h2 className="font-sans text-sm/[1.125rem] text-gray-400 md:text-base/[1.375rem] leading-relaxed [&_b]:md:font-semibold [&_strong]:md:font-semibold">
                                 {description}
                             </h2>
                         </div>
@@ -189,28 +190,12 @@ export default function Page() {
     ];
 
     return (
-        <div
-            className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-x-hidden"
-            data-oid="kzqzfo5"
-        >
-            {/* Animated Background */}
-            <div className="fixed inset-0 overflow-hidden pointer-events-none" data-oid="qqag05k">
-                <div
-                    className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
-                    data-oid="pl82.tm"
-                ></div>
-                <div
-                    className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"
-                    data-oid="5af-1uk"
-                ></div>
-                <div
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"
-                    data-oid="d3tnbns"
-                ></div>
-            </div>
-
+        <div className="min-h-screen bg-black text-white overflow-x-hidden" data-oid="kzqzfo5">
             {/* Navigation */}
-            <Navbar className="fixed top-0 left-0 right-0 z-50" data-oid="fl4::ck">
+            <Navbar
+                className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm"
+                data-oid="fl4::ck"
+            >
                 <NavBody data-oid="psq.1:a">
                     <a
                         href="#"
@@ -218,7 +203,7 @@ export default function Page() {
                         data-oid="9pa9-t4"
                     >
                         <div
-                            className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                            className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                             data-oid="beek17h"
                         >
                             PokePrint Co.
@@ -227,7 +212,7 @@ export default function Page() {
                     <NavItems items={navItems} data-oid="lh3aizi" />
                     <NavbarButton
                         variant="gradient"
-                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                        className="bg-gradient-to-r from-amber-600 to-yellow-600 text-black font-semibold"
                         data-oid="6xu8a0t"
                     >
                         Order Now
@@ -242,7 +227,7 @@ export default function Page() {
                             data-oid="a9.7vw-"
                         >
                             <div
-                                className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                                className="text-xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                                 data-oid="utjmb2w"
                             >
                                 PokePrint Co.
@@ -263,7 +248,7 @@ export default function Page() {
                             <a
                                 key={idx}
                                 href={item.link}
-                                className="text-neutral-700 dark:text-neutral-300 hover:text-purple-400 transition-colors duration-300"
+                                className="text-neutral-700 dark:text-neutral-300 hover:text-amber-400 transition-colors duration-300"
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 data-oid="g1x:avw"
                             >
@@ -272,7 +257,7 @@ export default function Page() {
                         ))}
                         <NavbarButton
                             variant="gradient"
-                            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white mt-4"
+                            className="bg-gradient-to-r from-amber-600 to-yellow-600 text-black font-semibold mt-4"
                             data-oid="xuekzh3"
                         >
                             Order Now
@@ -282,66 +267,72 @@ export default function Page() {
             </Navbar>
 
             {/* Hero Section */}
-            <section
-                className="relative z-10 min-h-screen flex items-center justify-center px-8 pt-24"
+            <WavyBackground
+                className="max-w-4xl mx-auto pb-40"
+                colors={['#fbbf24', '#f59e0b', '#d97706', '#b45309', '#92400e']}
+                waveWidth={80}
+                backgroundFill="#000000"
+                blur={10}
+                speed="fast"
+                waveOpacity={0.6}
                 data-oid="w_opkng"
-                key="olk-4H9F"
             >
                 <div
-                    className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                    className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                     data-oid="lqouza2"
                 >
                     <h1
-                        className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent leading-tight"
+                        className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent leading-tight"
                         data-oid="htjvynx"
                     >
-                        Transform Into
                         <br data-oid="2.31jsv" />
-                        <span className="text-yellow-400" data-oid="4lqa8h_">
-                            Pokemon Master
+                        <span className="text-white" data-oid="4lqa8h_">
+                            Custom Pokemon Trading Cards
                         </span>
                     </h1>
                     <p
-                        className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
+                        className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
                         data-oid="vw9swq9"
                     >
-                        Send us your photo and watch as we transform you into an anime-style Pokemon
-                        trainer on a custom, handcrafted card
+                        Transform your pictures into a premium, Pokemon anime-style trading card.
                     </p>
                     <div
                         className="flex flex-col sm:flex-row gap-4 justify-center"
                         data-oid=":nfoc8w"
                     >
                         <button
-                            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                            className="px-10 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-lg font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25"
                             data-oid="st0y3o5"
                         >
                             Create My Card
                         </button>
                         <button
-                            className="px-8 py-4 border-2 border-purple-400 rounded-full text-lg font-semibold hover:bg-purple-400 hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
+                            className="px-10 py-4 border-2 border-amber-400 text-amber-400 rounded-full text-lg font-semibold hover:bg-amber-400 hover:text-black transition-all duration-300 transform hover:scale-105"
                             data-oid="juncul2"
                         >
                             View Gallery
                         </button>
                     </div>
                 </div>
-            </section>
+            </WavyBackground>
 
             {/* Features Section */}
-            <section className="relative z-10 py-20 px-8" data-oid=":k_zdk8">
+            <section
+                className="relative z-10 py-20 px-8 bg-gradient-to-b from-black to-gray-900"
+                data-oid=":k_zdk8"
+            >
                 <div className="max-w-6xl mx-auto" data-oid="u9t:m.n">
                     <h2
-                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                         data-oid="mk58.8w"
                     >
-                        Why Choose Us?
+                        Premium Excellence
                     </h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" data-oid="a5aiceh">
                         {features.map((feature, index) => (
                             <div
                                 key={index}
-                                className="group p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20"
+                                className="group p-8 rounded-2xl bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-amber-500/20 hover:border-amber-400/40 hover:bg-gradient-to-br hover:from-gray-800/90 hover:to-black/90 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10"
                                 data-oid="jzyp_nt"
                             >
                                 <div
@@ -351,13 +342,13 @@ export default function Page() {
                                     {feature.icon}
                                 </div>
                                 <h3
-                                    className="text-xl font-semibold mb-3 text-purple-300"
+                                    className="text-xl font-semibold mb-3 text-amber-300"
                                     data-oid="ep45_0o"
                                 >
                                     {feature.title}
                                 </h3>
                                 <p
-                                    className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300"
+                                    className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed"
                                     data-oid="v_9-:xy"
                                 >
                                     {feature.description}
@@ -369,17 +360,20 @@ export default function Page() {
             </section>
 
             {/* Gallery Section */}
-            <section id="gallery" className="relative z-10 py-20 px-8" data-oid="0igre86">
+            <section
+                id="gallery"
+                className="relative z-10 py-20 px-8 bg-gradient-to-b from-gray-900 to-black"
+                data-oid="0igre86"
+            >
                 <div className="max-w-7xl mx-auto" data-oid="rw3dxxh">
                     <h2
-                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                         data-oid="z1v6blt"
                     >
-                        Our Creations
+                        Gallery
                     </h2>
                     <p className="text-center text-gray-300 mb-12 text-lg" data-oid="-i5jxbq">
-                        Drag the cards to explore our amazing Pokemon trainer transformations! Cards
-                        are stacked - drag the top one to reveal others below.
+                        Drag the cards to check out some of our Pokemon Card transformations!
                     </p>
 
                     <DraggableCardContainer
@@ -406,39 +400,50 @@ export default function Page() {
             </section>
 
             {/* Process Section */}
-            <section id="process" className="relative z-10 py-20 px-8" data-oid="gzb1f:0">
+            <section
+                id="process"
+                className="relative z-10 py-20 px-8 bg-gradient-to-b from-black to-gray-900"
+                data-oid="gzb1f:0"
+            >
                 <div className="max-w-7xl mx-auto" data-oid="ajxl8:t">
                     <h2
-                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                         data-oid="a5:_09r"
                     >
-                        How It Works
+                        Crafting Process
                     </h2>
                     <HowItWorksGrid />
                 </div>
             </section>
 
             {/* CTA Section */}
-            <section className="relative z-10 py-20 px-8" data-oid="auc97fp">
+            <section
+                className="relative z-10 py-20 px-8 bg-gradient-to-b from-gray-900 to-black"
+                data-oid="auc97fp"
+            >
                 <div className="max-w-4xl mx-auto text-center" data-oid="9onclco">
                     <div
-                        className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 backdrop-blur-sm border border-white/10 rounded-3xl p-12"
+                        className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-amber-500/30 rounded-3xl p-12 shadow-2xl shadow-amber-500/10"
                         data-oid="ojz7qx7"
                     >
                         <h2
-                            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                             data-oid="afr6hxs"
                         >
-                            Ready to Become a Pokemon Master?
+                            Ready for Luxury?
                         </h2>
-                        <p className="text-xl text-gray-300 mb-8" data-oid="bea3s5.">
-                            Transform your photo into an epic Pokemon card today!
+                        <p
+                            className="text-xl text-gray-300 mb-8 font-light leading-relaxed"
+                            data-oid="bea3s5."
+                        >
+                            Elevate your collection with a premium, handcrafted Pokemon trainer card
+                            that captures your unique style.
                         </p>
                         <button
-                            className="px-12 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                            className="px-12 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-xl font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25"
                             data-oid="s14s0v6"
                         >
-                            Start Your Transformation
+                            Commission Your Card
                         </button>
                     </div>
                 </div>
@@ -446,37 +451,38 @@ export default function Page() {
 
             {/* Footer */}
             <footer
-                className="relative z-10 border-t border-white/10 py-12 px-8"
+                className="relative z-10 border-t border-amber-500/20 py-12 px-8 bg-black"
                 data-oid="nq8z9z7"
             >
                 <div className="max-w-6xl mx-auto text-center" data-oid="yhkce95">
                     <div
-                        className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4"
+                        className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent mb-4"
                         data-oid="2t3jhqc"
                     >
                         PokePrint Co.
                     </div>
-                    <p className="text-gray-400 mb-6" data-oid="a-y24f-">
-                        Creating magical Pokemon cards, one transformation at a time
+                    <p className="text-gray-400 mb-6 font-light" data-oid="a-y24f-">
+                        Crafting luxury Pokemon cards with unparalleled artistry and attention to
+                        detail
                     </p>
                     <div className="flex justify-center space-x-6" data-oid="b:a1x.r">
                         <a
                             href="#"
-                            className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                            className="text-gray-400 hover:text-amber-400 transition-colors duration-300"
                             data-oid="_4i-gtp"
                         >
                             Privacy Policy
                         </a>
                         <a
                             href="#"
-                            className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                            className="text-gray-400 hover:text-amber-400 transition-colors duration-300"
                             data-oid="yp83kaz"
                         >
                             Terms of Service
                         </a>
                         <a
                             href="#"
-                            className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                            className="text-gray-400 hover:text-amber-400 transition-colors duration-300"
                             data-oid="h3s9s04"
                         >
                             Contact
