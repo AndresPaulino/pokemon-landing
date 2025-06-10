@@ -13,6 +13,87 @@ import {
     NavbarButton,
 } from '@/components/ui/resizable-navbar';
 import { DraggableCardBody, DraggableCardContainer } from '@/components/ui/draggable-card';
+import { Camera, Sparkles, Package, Settings, Zap } from 'lucide-react';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
+
+function HowItWorksGrid() {
+    return (
+        <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+            <ProcessGridItem
+                area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
+                icon={<Camera className="h-4 w-4 text-black dark:text-neutral-400" />}
+                title="Upload Your Photo"
+                description="Send us a clear photo of yourself that you'd like transformed into stunning anime-style artwork"
+            />
+
+            <ProcessGridItem
+                area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
+                icon={<Sparkles className="h-4 w-4 text-black dark:text-neutral-400" />}
+                title="AI Anime Transformation"
+                description="Our advanced AI transforms your photo into beautiful anime-style artwork perfect for a Pokemon trainer card"
+            />
+
+            <ProcessGridItem
+                area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
+                icon={<Settings className="h-4 w-4 text-black dark:text-neutral-400" />}
+                title="Custom Card Design"
+                description="We design your unique Pokemon card with custom stats, moves, and Pokemon trainer details"
+            />
+
+            <ProcessGridItem
+                area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
+                icon={<Zap className="h-4 w-4 text-black dark:text-neutral-400" />}
+                title="Premium Quality Print"
+                description="Each card is printed on high-quality cardstock with professional finishes for an authentic feel"
+            />
+
+            <ProcessGridItem
+                area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
+                icon={<Package className="h-4 w-4 text-black dark:text-neutral-400" />}
+                title="Fast & Secure Shipping"
+                description="Your custom Pokemon trainer card is carefully packaged and shipped within 5-7 business days"
+            />
+        </ul>
+    );
+}
+
+interface ProcessGridItemProps {
+    area: string;
+    icon: React.ReactNode;
+    title: string;
+    description: React.ReactNode;
+}
+
+const ProcessGridItem = ({ area, icon, title, description }: ProcessGridItemProps) => {
+    return (
+        <li className={`min-h-[14rem] list-none ${area}`}>
+            <div className="relative h-full rounded-2xl border border-white/10 p-2 md:rounded-3xl md:p-3">
+                <GlowingEffect
+                    spread={40}
+                    glow={true}
+                    disabled={false}
+                    proximity={64}
+                    inactiveZone={0.01}
+                />
+                <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
+                    <div className="relative flex flex-1 flex-col justify-between gap-3">
+                        <div className="w-fit rounded-lg border border-purple-400/50 bg-purple-500/10 p-2">
+                            {icon}
+                        </div>
+                        <div className="space-y-3">
+                            <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-purple-300 md:text-2xl/[1.875rem]">
+                                {title}
+                            </h3>
+                            <h2 className="font-sans text-sm/[1.125rem] text-gray-400 md:text-base/[1.375rem] [&_b]:md:font-semibold [&_strong]:md:font-semibold">
+                                {description}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    );
+};
 
 export default function Page() {
     const [isVisible, setIsVisible] = useState(false);
@@ -326,116 +407,14 @@ export default function Page() {
 
             {/* Process Section */}
             <section id="process" className="relative z-10 py-20 px-8" data-oid="gzb1f:0">
-                <div className="max-w-4xl mx-auto text-center" data-oid="ajxl8:t">
+                <div className="max-w-7xl mx-auto" data-oid="ajxl8:t">
                     <h2
-                        className="text-4xl md:text-5xl font-bold mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
                         data-oid="a5:_09r"
                     >
                         How It Works
                     </h2>
-                    <div className="space-y-12" data-oid="3idx7v_">
-                        <div
-                            className="flex flex-col md:flex-row items-center gap-8"
-                            data-oid="-riexc5"
-                        >
-                            <div className="flex-1 text-left" data-oid="gioxtxj">
-                                <div
-                                    className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-xl font-bold mb-4"
-                                    data-oid="slo1c:c"
-                                >
-                                    1
-                                </div>
-                                <h3
-                                    className="text-2xl font-semibold mb-3 text-purple-300"
-                                    data-oid="4pwqjny"
-                                >
-                                    Upload Your Photo
-                                </h3>
-                                <p className="text-gray-400" data-oid="n_ug_u7">
-                                    Send us a clear photo of yourself that you'd like transformed
-                                    into anime style
-                                </p>
-                            </div>
-                            <div className="flex-1" data-oid="h6eq94_">
-                                <div
-                                    className="w-full h-48 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-2xl border border-white/10 flex items-center justify-center"
-                                    data-oid="vwwufq7"
-                                >
-                                    <span className="text-6xl" data-oid="spk4djy">
-                                        📸
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className="flex flex-col md:flex-row-reverse items-center gap-8"
-                            data-oid="98r9yyh"
-                        >
-                            <div className="flex-1 text-left" data-oid="s_37wmp">
-                                <div
-                                    className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-xl font-bold mb-4"
-                                    data-oid="gsvmyum"
-                                >
-                                    2
-                                </div>
-                                <h3
-                                    className="text-2xl font-semibold mb-3 text-purple-300"
-                                    data-oid="smaae1m"
-                                >
-                                    AI Transformation
-                                </h3>
-                                <p className="text-gray-400" data-oid="am7.b7l">
-                                    Our AI transforms your photo into stunning anime-style artwork
-                                    perfect for a Pokemon card
-                                </p>
-                            </div>
-                            <div className="flex-1" data-oid="7g5.lq9">
-                                <div
-                                    className="w-full h-48 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-2xl border border-white/10 flex items-center justify-center"
-                                    data-oid="3zf95_p"
-                                >
-                                    <span className="text-6xl" data-oid="7qbxc9y">
-                                        🎨
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className="flex flex-col md:flex-row items-center gap-8"
-                            data-oid="98ox6sk"
-                        >
-                            <div className="flex-1 text-left" data-oid="etb6_so">
-                                <div
-                                    className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-xl font-bold mb-4"
-                                    data-oid="ts..o36"
-                                >
-                                    3
-                                </div>
-                                <h3
-                                    className="text-2xl font-semibold mb-3 text-purple-300"
-                                    data-oid="xpdtaz:"
-                                >
-                                    Handcrafted & Shipped
-                                </h3>
-                                <p className="text-gray-400" data-oid=":h00ady">
-                                    We carefully craft your custom Pokemon card by hand and ship it
-                                    within 5-7 business days
-                                </p>
-                            </div>
-                            <div className="flex-1" data-oid="y66m0n7">
-                                <div
-                                    className="w-full h-48 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-2xl border border-white/10 flex items-center justify-center"
-                                    data-oid="5gua.wo"
-                                >
-                                    <span className="text-6xl" data-oid="i_ia-k9">
-                                        🚚
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <HowItWorksGrid />
                 </div>
             </section>
 
