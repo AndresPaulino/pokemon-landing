@@ -16,6 +16,7 @@ import { DraggableCardBody, DraggableCardContainer } from '@/components/ui/dragg
 import { Camera, Sparkles, Package, Settings, Zap } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { WavyBackground } from '@/components/ui/wavy-background';
+import { GlareCard } from '@/components/ui/glare-card';
 
 function HowItWorksGrid() {
     return (
@@ -76,7 +77,7 @@ const ProcessGridItem = ({ area, icon, title, description }: ProcessGridItemProp
                     proximity={64}
                     inactiveZone={0.01}
                 />
-                <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm p-6 md:p-6 shadow-2xl shadow-amber-500/5">
+                <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm p-6 md:p-6 shadow-2xl shadow-amber-500/5">
                     <div className="relative flex flex-1 flex-col justify-between gap-3">
                         <div className="w-fit rounded-lg border border-amber-400/50 bg-amber-500/10 p-2">
                             {icon}
@@ -190,10 +191,10 @@ export default function Page() {
     ];
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-x-hidden" data-oid="kzqzfo5">
+        <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden" data-oid="kzqzfo5">
             {/* Navigation */}
             <Navbar
-                className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm"
+                className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-sm"
                 data-oid="fl4::ck"
             >
                 <NavBody data-oid="psq.1:a">
@@ -269,12 +270,12 @@ export default function Page() {
             {/* Hero Section */}
             <WavyBackground
                 className="max-w-4xl mx-auto pb-40"
-                colors={['#fbbf24', '#f59e0b', '#d97706', '#b45309', '#92400e']}
+                colors={['#334155', '#475569', '#64748b', '#1e293b', '#0f172a']}
                 waveWidth={80}
-                backgroundFill="#000000"
+                backgroundFill="#0f172a"
                 blur={10}
                 speed="fast"
-                waveOpacity={0.6}
+                waveOpacity={0.4}
                 data-oid="w_opkng"
             >
                 <div
@@ -318,7 +319,7 @@ export default function Page() {
 
             {/* Features Section */}
             <section
-                className="relative z-10 py-20 px-8 bg-gradient-to-b from-black to-gray-900"
+                className="relative z-10 py-20 px-8 bg-gradient-to-b from-slate-900 to-slate-800"
                 data-oid=":k_zdk8"
             >
                 <div className="max-w-6xl mx-auto" data-oid="u9t:m.n">
@@ -332,7 +333,7 @@ export default function Page() {
                         {features.map((feature, index) => (
                             <div
                                 key={index}
-                                className="group p-8 rounded-2xl bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-amber-500/20 hover:border-amber-400/40 hover:bg-gradient-to-br hover:from-gray-800/90 hover:to-black/90 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10"
+                                className="group p-8 rounded-2xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-amber-500/20 hover:border-amber-400/40 hover:bg-gradient-to-br hover:from-slate-700/90 hover:to-slate-800/90 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10"
                                 data-oid="jzyp_nt"
                             >
                                 <div
@@ -362,7 +363,7 @@ export default function Page() {
             {/* Gallery Section */}
             <section
                 id="gallery"
-                className="relative z-10 py-20 px-8 bg-gradient-to-b from-gray-900 to-black"
+                className="relative z-10 py-20 px-8 bg-gradient-to-b from-slate-800 to-slate-900"
                 data-oid="0igre86"
             >
                 <div className="max-w-7xl mx-auto" data-oid="rw3dxxh">
@@ -387,12 +388,14 @@ export default function Page() {
                                 initialRotation={card.initialRotation}
                                 data-oid=":saj-h0"
                             >
-                                <img
-                                    src={card.image}
-                                    alt={card.title}
-                                    className="pointer-events-none relative z-10 h-full w-full object-cover rounded-md"
-                                    data-oid="ixpt_ox"
-                                />
+                                <GlareCard className="h-full w-full flex items-center justify-center !w-full !aspect-auto">
+                                    <img
+                                        src={card.image}
+                                        alt={card.title}
+                                        className="h-full w-full absolute inset-0 object-cover rounded-[inherit]"
+                                        data-oid="ixpt_ox"
+                                    />
+                                </GlareCard>
                             </DraggableCardBody>
                         ))}
                     </DraggableCardContainer>
@@ -402,7 +405,7 @@ export default function Page() {
             {/* Process Section */}
             <section
                 id="process"
-                className="relative z-10 py-20 px-8 bg-gradient-to-b from-black to-gray-900"
+                className="relative z-10 py-20 px-8 bg-gradient-to-b from-slate-900 to-slate-800"
                 data-oid="gzb1f:0"
             >
                 <div className="max-w-7xl mx-auto" data-oid="ajxl8:t">
@@ -418,12 +421,12 @@ export default function Page() {
 
             {/* CTA Section */}
             <section
-                className="relative z-10 py-20 px-8 bg-gradient-to-b from-gray-900 to-black"
+                className="relative z-10 py-20 px-8 bg-gradient-to-b from-slate-800 to-slate-900"
                 data-oid="auc97fp"
             >
                 <div className="max-w-4xl mx-auto text-center" data-oid="9onclco">
                     <div
-                        className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-amber-500/30 rounded-3xl p-12 shadow-2xl shadow-amber-500/10"
+                        className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm border border-amber-500/30 rounded-3xl p-12 shadow-2xl shadow-amber-500/10"
                         data-oid="ojz7qx7"
                     >
                         <h2
@@ -451,7 +454,7 @@ export default function Page() {
 
             {/* Footer */}
             <footer
-                className="relative z-10 border-t border-amber-500/20 py-12 px-8 bg-black"
+                className="relative z-10 border-t border-amber-500/20 py-12 px-8 bg-slate-900"
                 data-oid="nq8z9z7"
             >
                 <div className="max-w-6xl mx-auto text-center" data-oid="yhkce95">
