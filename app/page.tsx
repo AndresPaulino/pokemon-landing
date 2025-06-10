@@ -140,7 +140,7 @@ export default function Page() {
                             className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
                             data-oid="beek17h"
                         >
-                            PokeCard Studio
+                            PokePrint Co.
                         </div>
                     </a>
                     <NavItems items={navItems} data-oid="lh3aizi" />
@@ -164,7 +164,7 @@ export default function Page() {
                                 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
                                 data-oid="utjmb2w"
                             >
-                                PokeCard Studio
+                                PokePrint Co.
                             </div>
                         </a>
                         <MobileNavToggle
@@ -475,7 +475,7 @@ export default function Page() {
                         className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4"
                         data-oid="2t3jhqc"
                     >
-                        PokeCard Studio
+                        PokePrint Co.
                     </div>
                     <p className="text-gray-400 mb-6" data-oid="a-y24f-">
                         Creating magical Pokemon cards, one transformation at a time

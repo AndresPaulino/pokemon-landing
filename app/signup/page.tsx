@@ -78,7 +78,7 @@ export default function SignUpPage() {
                     className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
                     data-oid="2lwl43q"
                 >
-                    PokeCard Studio
+                    PokePrint Co.
                 </Link>
                 <div className="hidden md:flex space-x-8" data-oid=":.:8gbu">
                     <Link
