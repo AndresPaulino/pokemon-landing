@@ -20,40 +20,73 @@ import { GlareCard } from '@/components/ui/glare-card';
 
 function HowItWorksGrid() {
     return (
-        <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+        <ul
+            className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2"
+            data-oid="9lf2a97"
+        >
             <ProcessGridItem
                 area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
-                icon={<Camera className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
+                icon={
+                    <Camera
+                        className="h-4 w-4 text-yellow-500 dark:text-neutral-400"
+                        data-oid="e7jb36p"
+                    />
+                }
                 title="Upload Your Photo"
                 description="Send us a clear photo of yourself that you'd like transformed into stunning anime-style artwork"
+                data-oid="hfgchf5"
             />
 
             <ProcessGridItem
                 area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
-                icon={<Sparkles className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
+                icon={
+                    <Sparkles
+                        className="h-4 w-4 text-yellow-500 dark:text-neutral-400"
+                        data-oid="l3jcs-0"
+                    />
+                }
                 title="AI Anime Transformation"
                 description="Our advanced AI transforms your photo into beautiful anime-style artwork perfect for a Pokemon trainer card"
+                data-oid="8-6:rmv"
             />
 
             <ProcessGridItem
                 area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
-                icon={<Settings className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
+                icon={
+                    <Settings
+                        className="h-4 w-4 text-yellow-500 dark:text-neutral-400"
+                        data-oid="d0ax1xl"
+                    />
+                }
                 title="Custom Card Design"
                 description="We design your unique Pokemon card with custom stats, moves, and Pokemon trainer details"
+                data-oid="mwep6g-"
             />
 
             <ProcessGridItem
                 area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
-                icon={<Zap className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
+                icon={
+                    <Zap
+                        className="h-4 w-4 text-yellow-500 dark:text-neutral-400"
+                        data-oid="i2blec_"
+                    />
+                }
                 title="Premium Quality Print"
                 description="Each card is printed on high-quality cardstock with professional finishes for an authentic feel"
+                data-oid="htljvez"
             />
 
             <ProcessGridItem
                 area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
-                icon={<Package className="h-4 w-4 text-yellow-500 dark:text-neutral-400" />}
+                icon={
+                    <Package
+                        className="h-4 w-4 text-yellow-500 dark:text-neutral-400"
+                        data-oid="q.m743:"
+                    />
+                }
                 title="Fast & Secure Shipping"
                 description="Your custom Pokemon trainer card is carefully packaged and shipped within 5-7 business days"
+                data-oid="bjoxktv"
             />
         </ul>
     );
@@ -68,25 +101,45 @@ interface ProcessGridItemProps {
 
 const ProcessGridItem = ({ area, icon, title, description }: ProcessGridItemProps) => {
     return (
-        <li className={`min-h-[14rem] list-none ${area}`}>
-            <div className="relative h-full rounded-2xl border border-amber-500/20 p-2 md:rounded-3xl md:p-3">
+        <li className={`min-h-[14rem] list-none ${area}`} data-oid="a:t91ve">
+            <div
+                className="relative h-full rounded-2xl border border-amber-500/20 p-2 md:rounded-3xl md:p-3"
+                data-oid="8o3xy-5"
+            >
                 <GlowingEffect
                     spread={40}
                     glow={true}
                     disabled={false}
                     proximity={64}
                     inactiveZone={0.01}
+                    data-oid="qymwgnt"
                 />
-                <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm p-6 md:p-6 shadow-2xl shadow-amber-500/5">
-                    <div className="relative flex flex-1 flex-col justify-between gap-3">
-                        <div className="w-fit rounded-lg border border-amber-400/50 bg-amber-500/10 p-2">
+
+                <div
+                    className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm p-6 md:p-6 shadow-2xl shadow-amber-500/5"
+                    data-oid="qyz86ga"
+                >
+                    <div
+                        className="relative flex flex-1 flex-col justify-between gap-3"
+                        data-oid="zrob8:y"
+                    >
+                        <div
+                            className="w-fit rounded-lg border border-amber-400/50 bg-amber-500/10 p-2"
+                            data-oid="5xgf4rx"
+                        >
                             {icon}
                         </div>
-                        <div className="space-y-3">
-                            <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-amber-300 md:text-2xl/[1.875rem]">
+                        <div className="space-y-3" data-oid="vfxw1jg">
+                            <h3
+                                className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-amber-300 md:text-2xl/[1.875rem]"
+                                data-oid="b_3ofi0"
+                            >
                                 {title}
                             </h3>
-                            <h2 className="font-sans text-sm/[1.125rem] text-gray-400 md:text-base/[1.375rem] leading-relaxed [&_b]:md:font-semibold [&_strong]:md:font-semibold">
+                            <h2
+                                className="font-sans text-sm/[1.125rem] text-gray-400 md:text-base/[1.375rem] leading-relaxed [&_b]:md:font-semibold [&_strong]:md:font-semibold"
+                                data-oid="2krv0ft"
+                            >
                                 {description}
                             </h2>
                         </div>
@@ -388,14 +441,13 @@ export default function Page() {
                                 initialRotation={card.initialRotation}
                                 data-oid=":saj-h0"
                             >
-                                <GlareCard className="h-full w-full flex items-center justify-center !w-full !aspect-auto">
-                                    <img
-                                        src={card.image}
-                                        alt={card.title}
-                                        className="h-full w-full absolute inset-0 object-cover rounded-[inherit]"
-                                        data-oid="ixpt_ox"
-                                    />
-                                </GlareCard>
+                                <img
+                                    src={card.image}
+                                    alt={card.title}
+                                    className="h-full w-full object-cover rounded-md pointer-events-none select-none"
+                                    draggable="false"
+                                    data-oid="ixpt_ox"
+                                />
                             </DraggableCardBody>
                         ))}
                     </DraggableCardContainer>
@@ -415,7 +467,7 @@ export default function Page() {
                     >
                         Crafting Process
                     </h2>
-                    <HowItWorksGrid />
+                    <HowItWorksGrid data-oid="5wi37c5" />
                 </div>
             </section>
 

@@ -856,6 +856,7 @@ export default function OrderPage() {
                                                     className="border-white/20"
                                                     data-oid="d8u.x6k"
                                                 />
+
                                                 <div
                                                     className="flex justify-between text-lg font-bold text-purple-300"
                                                     data-oid="1ilwx4k"
