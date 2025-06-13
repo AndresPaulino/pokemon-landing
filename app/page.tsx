@@ -153,7 +153,7 @@ const ProcessGridItem = ({ area, icon, title, description }: ProcessGridItemProp
 
 function CompareDemo() {
     return (
-        <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800 px-4">
+        <div className="rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200/25 dark:border-neutral-800/50 shadow-2xl shadow-amber-500/5 p-2">
             <Compare
                 firstImage="/images/Hector_Original.png"
                 secondImage="/images/Hector.png"
@@ -398,27 +398,27 @@ export default function Page() {
                         {features.map((feature, index) => (
                             <div
                                 key={index}
-                                className="group p-8 rounded-2xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-amber-500/20 hover:border-amber-400/40 hover:bg-gradient-to-br hover:from-slate-700/90 hover:to-slate-800/90 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10"
+                                className="relative group p-8 rounded-2xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-amber-500/20 hover:border-amber-400/40 hover:bg-gradient-to-br hover:from-slate-700/90 hover:to-slate-800/90 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/10"
                                 data-oid="jzyp_nt"
                             >
-                                <div
-                                    className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
-                                    data-oid="aum:0hy"
-                                >
-                                    {feature.icon}
+                                <GlowingEffect
+                                    spread={40}
+                                    glow={true}
+                                    disabled={false}
+                                    proximity={64}
+                                    inactiveZone={0.01}
+                                />
+                                <div className="relative z-10">
+                                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        {feature.icon}
+                                    </div>
+                                    <h3 className="text-xl font-semibold mb-3 text-amber-300">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed">
+                                        {feature.description}
+                                    </p>
                                 </div>
-                                <h3
-                                    className="text-xl font-semibold mb-3 text-amber-300"
-                                    data-oid="ep45_0o"
-                                >
-                                    {feature.title}
-                                </h3>
-                                <p
-                                    className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed"
-                                    data-oid="v_9-:xy"
-                                >
-                                    {feature.description}
-                                </p>
                             </div>
                         ))}
                     </div>
