@@ -47,7 +47,7 @@ function HowItWorksGrid() {
                     />
                 }
                 title="AI Anime Transformation"
-                description="Our advanced AI transforms your photo into beautiful anime-style artwork perfect for a Pokemon trainer card"
+                description="Our advanced AI transforms your photo into beautiful anime-style artwork perfect for a Pokémon card"
                 data-oid="8-6:rmv"
             />
 
@@ -60,7 +60,7 @@ function HowItWorksGrid() {
                     />
                 }
                 title="Custom Card Design"
-                description="We design your unique Pokemon card with custom stats, moves, and Pokemon trainer details"
+                description="We design your unique Pokémon card with custom stats, moves, and Pokémon details"
                 data-oid="mwep6g-"
             />
 
@@ -86,7 +86,7 @@ function HowItWorksGrid() {
                     />
                 }
                 title="Fast & Secure Shipping"
-                description="Your custom Pokemon trainer card is carefully packaged and shipped within 5-7 business days"
+                description="Your custom Pokémon card is carefully packaged and shipped within 5-7 business days"
                 data-oid="bjoxktv"
             />
         </ul>
@@ -337,16 +337,26 @@ export default function Page() {
             </Navbar>
 
             {/* Hero Section */}
-            <div className="relative w-full h-screen flex items-center justify-center">
+            <section
+                className="relative z-10 py-24 px-8 bg-gradient-to-b from-slate-900 to-slate-800 flex flex-col items-center justify-center"
+            >
                 <WavyBackground className="max-w-4xl mx-auto pb-40">
-                    <p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
-                        Transform Your Photo into a Pokemon Card
-                    </p>
-                    <p className="text-base md:text-lg mt-4 text-white font-normal inter-var text-center">
-                        Create your own custom Pokemon trainer card with AI-powered anime transformation
-                    </p>
+                    <div className="max-w-3xl mx-auto text-center">
+                        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent drop-shadow-lg">
+                            Transform Your Photo into a Pokémon Card
+                        </h1>
+                        <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light leading-relaxed">
+                            Create your own custom Pokémon card with AI-powered anime transformation. Unique, personal, and crafted just for you!
+                        </p>
+                        <button
+                            className="px-10 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-lg font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25"
+                        >
+                            Get Started
+                        </button>
+                        <div className="w-24 h-1 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-600 rounded-full mt-10 mx-auto"></div>
+                    </div>
                 </WavyBackground>
-            </div>
+            </section>
 
             {/* Compare Demo Section */}
             <div className="w-full flex flex-col items-center justify-center py-12">
@@ -471,24 +481,16 @@ export default function Page() {
                         className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm border border-amber-500/30 rounded-3xl p-12 shadow-2xl shadow-amber-500/10"
                         data-oid="ojz7qx7"
                     >
-                        <h2
-                            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
-                            data-oid="afr6hxs"
-                        >
-                            Ready for Luxury?
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
+                            Bring Your Imagination to Life!
                         </h2>
-                        <p
-                            className="text-xl text-gray-300 mb-8 font-light leading-relaxed"
-                            data-oid="bea3s5."
-                        >
-                            Elevate your collection with a premium, handcrafted Pokemon trainer card
-                            that captures your unique style.
+                        <p className="text-xl text-gray-300 mb-8 font-light leading-relaxed">
+                            Transform your favorite photo into a one-of-a-kind Pokémon card. Unique, personal, and crafted just for you—start your journey today!
                         </p>
                         <button
                             className="px-12 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-xl font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25"
-                            data-oid="s14s0v6"
                         >
-                            Commission Your Card
+                            Create My Card
                         </button>
                     </div>
                 </div>
