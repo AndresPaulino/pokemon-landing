@@ -337,16 +337,28 @@ export default function Page() {
             </Navbar>
 
             {/* Hero Section */}
-            <section
-                className="relative z-10 py-24 px-8 bg-gradient-to-b from-slate-900 to-slate-800 flex flex-col items-center justify-center"
-            >
-                <WavyBackground className="max-w-4xl mx-auto pb-40">
-                    <div className="max-w-3xl mx-auto text-center">
+            <section className="relative z-10 bg-gradient-to-b from-slate-900 to-slate-800 flex flex-col items-center justify-center">
+                <WavyBackground
+                    className="max-w-4xl mx-auto"
+                    backgroundFill="#0f172a"
+                    colors={[
+                        "#fbbf24",
+                        "#fde68a",
+                        "#f59e42",
+                        "#64748b",
+                        "#1e293b"
+                    ]}
+                    waveOpacity={0.4}
+                    waveWidth={80}
+                    blur={16}
+                    speed="fast"
+                >
+                    <div className="max-w-3xl mx-auto text-center py-24">
                         <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent drop-shadow-lg">
                             Transform Your Photo into a Pokémon Card
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light leading-relaxed">
-                            Create your own custom Pokémon card with AI-powered anime transformation. Unique, personal, and crafted just for you!
+                            Create your own custom Pokémon trainer card with AI-powered anime transformation. Unique, personal, and crafted just for you!
                         </p>
                         <button
                             className="px-10 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-lg font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25"
@@ -359,7 +371,7 @@ export default function Page() {
             </section>
 
             {/* Compare Demo Section */}
-            <div className="w-full flex flex-col items-center justify-center py-12">
+            <div className="w-full flex flex-col items-center justify-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-amber-400 mb-2 text-center drop-shadow-lg">
                     Before & After: AI Anime Transformation
                 </h2>
