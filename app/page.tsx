@@ -349,7 +349,14 @@ export default function Page() {
             </div>
 
             {/* Compare Demo Section */}
-            <div className="w-full flex items-center justify-center py-12">
+            <div className="w-full flex flex-col items-center justify-center py-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-amber-400 mb-2 text-center drop-shadow-lg">
+                    Before & After: AI Anime Transformation
+                </h2>
+                <p className="text-lg text-gray-300 mb-6 text-center max-w-xl">
+                    See the magic of our AI transformation in action! Slide to compare the original photo with the anime-style card.
+                </p>
+                <div className="w-24 h-1 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-600 rounded-full mb-8"></div>
                 <CompareDemo />
             </div>
 
