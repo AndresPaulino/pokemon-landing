@@ -354,7 +354,7 @@ export default function Page() {
                     speed="fast"
                 >
                     <div className="max-w-3xl mx-auto text-center py-24">
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent drop-shadow-lg">
+                        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent drop-shadow-lg pb-2 leading-[1.15]">
                             Transform Your Photo into a Pokémon Card
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light leading-relaxed">
@@ -372,7 +372,7 @@ export default function Page() {
 
             {/* Compare Demo Section */}
             <div className="w-full flex flex-col items-center justify-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-amber-400 mb-2 text-center drop-shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold text-amber-400 mb-2 text-center drop-shadow-lg pb-2 leading-[1.15]">
                     Before & After: AI Anime Transformation
                 </h2>
                 <p className="text-lg text-gray-300 mb-6 text-center max-w-xl">
@@ -389,7 +389,7 @@ export default function Page() {
             >
                 <div className="max-w-6xl mx-auto" data-oid="u9t:m.n">
                     <h2
-                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
+                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent pb-2 leading-[1.15]"
                         data-oid="mk58.8w"
                     >
                         Premium Excellence
@@ -433,7 +433,7 @@ export default function Page() {
             >
                 <div className="max-w-7xl mx-auto" data-oid="rw3dxxh">
                     <h2
-                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
+                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent pb-2 leading-[1.15]"
                         data-oid="z1v6blt"
                     >
                         Gallery
@@ -474,7 +474,7 @@ export default function Page() {
             >
                 <div className="max-w-7xl mx-auto" data-oid="ajxl8:t">
                     <h2
-                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
+                        className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent pb-2 leading-[1.15]"
                         data-oid="a5:_09r"
                     >
                         Crafting Process
@@ -493,7 +493,10 @@ export default function Page() {
                         className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm border border-amber-500/30 rounded-3xl p-12 shadow-2xl shadow-amber-500/10"
                         data-oid="ojz7qx7"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
+                        <h2
+                            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent pb-2 leading-[1.15]"
+                            data-oid="mk58.8w"
+                        >
                             Bring Your Imagination to Life!
                         </h2>
                         <p className="text-xl text-gray-300 mb-8 font-light leading-relaxed">
@@ -520,10 +523,6 @@ export default function Page() {
                     >
                         PokePrint Co.
                     </div>
-                    <p className="text-gray-400 mb-6 font-light" data-oid="a-y24f-">
-                        Crafting luxury Pokemon cards with unparalleled artistry and attention to
-                        detail
-                    </p>
                     <div className="flex justify-center space-x-6" data-oid="b:a1x.r">
                         <a
                             href="#"
