@@ -17,6 +17,7 @@ import { Camera, Sparkles, Package, Settings, Zap } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { WavyBackground } from '@/components/ui/wavy-background';
 import { GlareCard } from '@/components/ui/glare-card';
+import { Compare } from "@/components/ui/compare";
 
 function HowItWorksGrid() {
     return (
@@ -149,6 +150,21 @@ const ProcessGridItem = ({ area, icon, title, description }: ProcessGridItemProp
         </li>
     );
 };
+
+function CompareDemo() {
+    return (
+        <div className="p-4 border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800 px-4">
+            <Compare
+                firstImage="/images/Hector_Original.png"
+                secondImage="/images/Hector.png"
+                firstImageClassName="object-cover [object-position:left_35px_top]"
+                secondImageClassname="object-cover object-left-top"
+                className="min-h-96 w-80"
+                slideMode="hover"
+            />
+        </div>
+    );
+}
 
 export default function Page() {
     const [isVisible, setIsVisible] = useState(false);
@@ -321,54 +337,21 @@ export default function Page() {
             </Navbar>
 
             {/* Hero Section */}
-            <WavyBackground
-                className="max-w-4xl mx-auto pb-40"
-                colors={['#334155', '#475569', '#64748b', '#1e293b', '#0f172a']}
-                waveWidth={80}
-                backgroundFill="#0f172a"
-                blur={10}
-                speed="fast"
-                waveOpacity={0.4}
-                data-oid="w_opkng"
-            >
-                <div
-                    className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                    data-oid="lqouza2"
-                >
-                    <h1
-                        className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent leading-tight"
-                        data-oid="htjvynx"
-                    >
-                        <br data-oid="2.31jsv" />
-                        <span className="text-white" data-oid="4lqa8h_">
-                            Custom Pokemon Trading Cards
-                        </span>
-                    </h1>
-                    <p
-                        className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
-                        data-oid="vw9swq9"
-                    >
-                        Transform your pictures into a premium, Pokemon anime-style trading card.
+            <div className="relative w-full h-screen flex items-center justify-center">
+                <WavyBackground className="max-w-4xl mx-auto pb-40">
+                    <p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
+                        Transform Your Photo into a Pokemon Card
                     </p>
-                    <div
-                        className="flex flex-col sm:flex-row gap-4 justify-center"
-                        data-oid=":nfoc8w"
-                    >
-                        <button
-                            className="px-10 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-lg font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25"
-                            data-oid="st0y3o5"
-                        >
-                            Create My Card
-                        </button>
-                        <button
-                            className="px-10 py-4 border-2 border-amber-400 text-amber-400 rounded-full text-lg font-semibold hover:bg-amber-400 hover:text-black transition-all duration-300 transform hover:scale-105"
-                            data-oid="juncul2"
-                        >
-                            View Gallery
-                        </button>
-                    </div>
-                </div>
-            </WavyBackground>
+                    <p className="text-base md:text-lg mt-4 text-white font-normal inter-var text-center">
+                        Create your own custom Pokemon trainer card with AI-powered anime transformation
+                    </p>
+                </WavyBackground>
+            </div>
+
+            {/* Compare Demo Section */}
+            <div className="w-full flex items-center justify-center py-12">
+                <CompareDemo />
+            </div>
 
             {/* Features Section */}
             <section
