@@ -18,6 +18,7 @@ import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { WavyBackground } from '@/components/ui/wavy-background';
 import { GlareCard } from '@/components/ui/glare-card';
 import { Compare } from '@/components/ui/compare';
+import { HolographicCard } from '@/components/ui/holographic-card';
 
 function HowItWorksGrid() {
     return (
@@ -235,6 +236,33 @@ export default function Page() {
         },
     ];
 
+    const holographicCardExamples = [
+        {
+            id: 1,
+            variant: 'charizard',
+            title: 'Charizard',
+            image: 'https://assets.codepen.io/13471/charizard-gx.webp',
+        },
+        {
+            id: 2,
+            variant: 'pikachu',
+            title: 'Pikachu',
+            image: 'https://assets.codepen.io/13471/pikachu-gx.webp',
+        },
+        {
+            id: 3,
+            variant: 'eevee',
+            title: 'Eevee',
+            image: 'https://assets.codepen.io/13471/eevee-gx.webp',
+        },
+        {
+            id: 4,
+            variant: 'mewtwo',
+            title: 'Mewtwo',
+            image: 'https://assets.codepen.io/13471/mewtwo-gx.webp',
+        },
+    ];
+
     const features = [
         {
             icon: '🎨',
@@ -361,6 +389,14 @@ export default function Page() {
                     </div>
                 </WavyBackground>
             </section>
+
+            <div className="flex flex-wrap gap-4">
+                {holographicCardExamples.map((card) => (
+                    <HolographicCard key={card.id} variant={card.variant as any}>
+                        <img src={card.image} alt={card.title} />
+                    </HolographicCard>
+                ))}
+            </div>
 
             {/* Compare Demo Section */}
             <div className="w-full flex flex-col items-center justify-center">
