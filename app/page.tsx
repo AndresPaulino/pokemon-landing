@@ -480,14 +480,15 @@ export default function Page() {
                                 key={card.id}
                                 className={card.className}
                                 initialRotation={card.initialRotation}
-                                data-oid=":saj-h0"
+                                variant="eevee" // or determine based on card.variant
+                                enableHolographic={true} // Enable the effect
                             >
                                 <img
                                     src={card.image}
                                     alt={card.title}
-                                    className="h-full w-full object-cover rounded-md pointer-events-none select-none"
+                                    className="h-full w-full object-cover pointer-events-none select-none"
                                     draggable="false"
-                                    data-oid="ixpt_ox"
+                                    style={{ borderRadius: '5% / 3.5%' }} // Match the card border radius
                                 />
                             </DraggableCardBody>
                         ))}
