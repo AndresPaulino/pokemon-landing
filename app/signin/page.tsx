@@ -51,7 +51,7 @@ export default function SignInPage() {
                     className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
                     data-oid="qr1w9xi"
                 >
-                    PokePrint Co.
+                    PokePrint Me
                 </Link>
                 <div className="hidden md:flex space-x-8" data-oid="3a0j1ln">
                     <Link
@@ -67,13 +67,6 @@ export default function SignInPage() {
                         data-oid="ne0ghrp"
                     >
                         Process
-                    </Link>
-                    <Link
-                        href="/#contact"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="6vtrwb9"
-                    >
-                        Contact
                     </Link>
                 </div>
                 <Link

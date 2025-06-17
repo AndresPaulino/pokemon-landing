@@ -78,7 +78,7 @@ export default function SignUpPage() {
                     className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
                     data-oid="2lwl43q"
                 >
-                    PokePrint Co.
+                    PokePrint Me
                 </Link>
                 <div className="hidden md:flex space-x-8" data-oid=":.:8gbu">
                     <Link
@@ -94,13 +94,6 @@ export default function SignUpPage() {
                         data-oid="bdjdky2"
                     >
                         Process
-                    </Link>
-                    <Link
-                        href="/#contact"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="qijbeo6"
-                    >
-                        Contact
                     </Link>
                 </div>
                 <Link

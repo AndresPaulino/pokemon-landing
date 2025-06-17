@@ -17,7 +17,7 @@ import { Camera, Sparkles, Package, Settings, Zap } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { WavyBackground } from '@/components/ui/wavy-background';
 import { GlareCard } from '@/components/ui/glare-card';
-import { Compare } from "@/components/ui/compare";
+import { Compare } from '@/components/ui/compare';
 
 function HowItWorksGrid() {
     return (
@@ -174,7 +174,6 @@ export default function Page() {
     const navItems = [
         { name: 'Gallery', link: '#gallery' },
         { name: 'Process', link: '#process' },
-        { name: 'Contact', link: '#contact' },
     ];
 
     useEffect(() => {
@@ -276,7 +275,7 @@ export default function Page() {
                             className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                             data-oid="beek17h"
                         >
-                            PokePrint Co.
+                            PokePrint Me
                         </div>
                     </a>
                     <NavItems items={navItems} data-oid="lh3aizi" />
@@ -300,7 +299,7 @@ export default function Page() {
                                 className="text-xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                                 data-oid="utjmb2w"
                             >
-                                PokePrint Co.
+                                PokePrint Me
                             </div>
                         </a>
                         <MobileNavToggle
@@ -341,13 +340,7 @@ export default function Page() {
                 <WavyBackground
                     className="max-w-4xl mx-auto"
                     backgroundFill="#0f172a"
-                    colors={[
-                        "#fbbf24",
-                        "#fde68a",
-                        "#f59e42",
-                        "#64748b",
-                        "#1e293b"
-                    ]}
+                    colors={['#fbbf24', '#fde68a', '#f59e42', '#64748b', '#1e293b']}
                     waveOpacity={0.4}
                     waveWidth={80}
                     blur={16}
@@ -358,11 +351,10 @@ export default function Page() {
                             Transform Your Photo into a Pokémon Card
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 mb-8 font-light leading-relaxed">
-                            Create your own custom Pokémon trainer card with AI-powered anime transformation. Unique, personal, and crafted just for you!
+                            Create your own custom Pokémon trainer card with AI-powered anime
+                            transformation. Unique, personal, and crafted just for you!
                         </p>
-                        <button
-                            className="px-10 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-lg font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25"
-                        >
+                        <button className="px-10 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-lg font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25">
                             Get Started
                         </button>
                         <div className="w-24 h-1 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-600 rounded-full mt-10 mx-auto"></div>
@@ -376,7 +368,8 @@ export default function Page() {
                     Before & After: AI Anime Transformation
                 </h2>
                 <p className="text-lg text-gray-300 mb-6 text-center max-w-xl">
-                    See the magic of our AI transformation in action! Slide to compare the original photo with the anime-style card.
+                    See the magic of our AI transformation in action! Slide to compare the original
+                    photo with the anime-style card.
                 </p>
                 <div className="w-24 h-1 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-600 rounded-full mb-8"></div>
                 <CompareDemo />
@@ -500,11 +493,10 @@ export default function Page() {
                             Bring Your Imagination to Life!
                         </h2>
                         <p className="text-xl text-gray-300 mb-8 font-light leading-relaxed">
-                            Transform your favorite photo into a one-of-a-kind Pokémon card. Unique, personal, and crafted just for you—start your journey today!
+                            Transform your favorite photo into a one-of-a-kind Pokémon card. Unique,
+                            personal, and crafted just for you—start your journey today!
                         </p>
-                        <button
-                            className="px-12 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-xl font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25"
-                        >
+                        <button className="px-12 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-xl font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25">
                             Create My Card
                         </button>
                     </div>
@@ -521,7 +513,7 @@ export default function Page() {
                         className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent mb-4"
                         data-oid="2t3jhqc"
                     >
-                        PokePrint Co.
+                        PokePrint Me
                     </div>
                     <div className="flex justify-center space-x-6" data-oid="b:a1x.r">
                         <a

@@ -199,7 +199,7 @@ export default function OrderPage() {
                     className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
                     data-oid="0metlov"
                 >
-                    PokePrint Co.
+                    PokePrint Me
                 </Link>
                 <div className="hidden md:flex space-x-8" data-oid="in6..yj">
                     <Link
@@ -215,13 +215,6 @@ export default function OrderPage() {
                         data-oid="nm6a-tk"
                     >
                         Process
-                    </Link>
-                    <Link
-                        href="/#contact"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="-o_6rn_"
-                    >
-                        Contact
                     </Link>
                 </div>
                 <div className="flex items-center space-x-4" data-oid="4jtftfy">
