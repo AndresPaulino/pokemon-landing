@@ -11,7 +11,6 @@
     },
     "dependencies": {
         "@next-auth/supabase-adapter": "^0.2.1",
-        "@prisma/client": "^6.10.1",
         "@radix-ui/react-slot": "^1.1.0",
         "@stripe/react-stripe-js": "^3.7.0",
         "@stripe/stripe-js": "^7.3.1",
@@ -27,7 +26,6 @@
         "motion": "^12.18.1",
         "next": "14.2.23",
         "next-auth": "^4.24.11",
-        "prisma": "^6.10.1",
         "react": "^18",
         "react-dom": "^18",
         "react-element-to-jsx-string": "^17.0.1",
