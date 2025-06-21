@@ -185,13 +185,13 @@ export default function Page() {
     }, []);
 
     const cardExamples = [
-        {
-            id: 1,
-            title: 'Asher',
-            image: '/images/Asher.png',
-            className: 'absolute top-10 left-[20%]',
-            initialRotation: -6,
-        },
+        // {
+        //     id: 1,
+        //     title: 'Juliette',
+        //     image: '/images/Juliette.png',
+        //     className: 'absolute top-8 left-[30%]',
+        //     initialRotation: -10,
+        // },
         {
             id: 2,
             title: 'Estee',
@@ -226,13 +226,13 @@ export default function Page() {
             image: '/images/Olivia.png',
             className: 'absolute top-24 left-[45%]',
             initialRotation: 3,
-        },
+        },        
         {
             id: 7,
-            title: 'Juliette',
-            image: '/images/Juliette.png',
-            className: 'absolute top-8 left-[30%]',
-            initialRotation: -10,
+            title: 'Asher',
+            image: '/images/Asher.png',
+            className: 'absolute top-10 left-[20%]',
+            initialRotation: -6,
         },
     ];
 
@@ -389,14 +389,6 @@ export default function Page() {
                     </div>
                 </WavyBackground>
             </section>
-
-            {/* <div className="flex flex-wrap gap-4">
-                {holographicCardExamples.map((card) => (
-                    <HolographicCard key={card.id} variant={card.variant as any}>
-                        <img src={card.image} alt={card.title} />
-                    </HolographicCard>
-                ))}
-            </div> */}
 
             {/* Compare Demo Section */}
             <div className="w-full flex flex-col items-center justify-center">

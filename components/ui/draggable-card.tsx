@@ -402,9 +402,6 @@ export const DraggableCardBody = ({
 
                 {/* Original glare effect */}
                 <motion.div
-                    style={{
-                        opacity: glareOpacity,
-                    }}
                     className={cn(
                         'pointer-events-none absolute inset-0 bg-white select-none z-60',
                         enableHolographic ? '' : 'rounded-md',
