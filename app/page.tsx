@@ -299,7 +299,7 @@ export default function Page() {
                         className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
                         data-oid="9pa9-t4"
                     >
-                        <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-20" />
+                        <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-16" />
                     </a>
                     <NavItems items={navItems} data-oid="lh3aizi" />
                     <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50">
@@ -317,7 +317,7 @@ export default function Page() {
                             className="flex items-center space-x-2 px-2 py-1 text-sm font-normal"
                             data-oid="a9.7vw-"
                         >
-                            <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-20" />
+                            <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-16" />
                         </a>
                         <MobileNavToggle
                             isOpen={isMobileMenuOpen}
@@ -532,11 +532,8 @@ export default function Page() {
                 data-oid="nq8z9z7"
             >
                 <div className="max-w-6xl mx-auto text-center" data-oid="yhkce95">
-                    <div
-                        className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent mb-4"
-                        data-oid="2t3jhqc"
-                    >
-                        PokePrint Me
+                    <div className="flex justify-center mb-4">
+                        <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-16" />
                     </div>
                     <div className="flex justify-center space-x-6" data-oid="b:a1x.r">
                         <a
