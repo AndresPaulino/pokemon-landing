@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 export const metadata: Metadata = {
-    title: 'PokePrint',
-    description: 'PokePrint is a platform for ordering and printing custom made Pokemon cards',
+    title: 'Poke Print Me',
+    description: 'Poke Print Me is a platform for ordering and printing custom made Pokémon cards',
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
