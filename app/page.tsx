@@ -299,21 +299,15 @@ export default function Page() {
                         className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
                         data-oid="9pa9-t4"
                     >
-                        <div
-                            className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
-                            data-oid="beek17h"
-                        >
-                            PokePrint Me
-                        </div>
+                        <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-20" />
                     </a>
                     <NavItems items={navItems} data-oid="lh3aizi" />
-                    <NavbarButton
-                        variant="gradient"
-                        className="bg-gradient-to-r from-amber-600 to-yellow-600 text-black font-semibold"
-                        data-oid="6xu8a0t"
-                    >
-                        Order Now
-                    </NavbarButton>
+                    <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
+                        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-yellow-400 backdrop-blur-3xl">
+                            Order Now
+                        </span>
+                    </button>
                 </NavBody>
 
                 <MobileNav data-oid="6hbk2qo">
@@ -323,12 +317,7 @@ export default function Page() {
                             className="flex items-center space-x-2 px-2 py-1 text-sm font-normal"
                             data-oid="a9.7vw-"
                         >
-                            <div
-                                className="text-xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
-                                data-oid="utjmb2w"
-                            >
-                                PokePrint Me
-                            </div>
+                            <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-20" />
                         </a>
                         <MobileNavToggle
                             isOpen={isMobileMenuOpen}
@@ -352,13 +341,12 @@ export default function Page() {
                                 {item.name}
                             </a>
                         ))}
-                        <NavbarButton
-                            variant="gradient"
-                            className="bg-gradient-to-r from-amber-600 to-yellow-600 text-black font-semibold mt-4"
-                            data-oid="xuekzh3"
-                        >
-                            Order Now
-                        </NavbarButton>
+                        <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50 mt-4">
+                            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
+                            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-yellow-400 backdrop-blur-3xl">
+                                Order Now
+                            </span>
+                        </button>
                     </MobileNavMenu>
                 </MobileNav>
             </Navbar>
@@ -382,8 +370,11 @@ export default function Page() {
                             Create your own custom Pokémon trainer card with AI-powered anime
                             transformation. Unique, personal, and crafted just for you!
                         </p>
-                        <button className="px-10 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-lg font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25">
-                            Get Started
+                        <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
+                            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-lg font-bold text-yellow-400 backdrop-blur-3xl">
+                                Get Started
+                            </span>
                         </button>
                         <div className="w-24 h-1 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-600 rounded-full mt-10 mx-auto"></div>
                     </div>
@@ -525,8 +516,11 @@ export default function Page() {
                             Transform your favorite photo into a one-of-a-kind Pokémon card. Unique,
                             personal, and crafted just for you—start your journey today!
                         </p>
-                        <button className="px-12 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black rounded-full text-xl font-bold hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-amber-500/25">
-                            Create My Card
+                        <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
+                            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-xl font-bold text-yellow-400 backdrop-blur-3xl">
+                                Create My Card
+                            </span>
                         </button>
                     </div>
                 </div>
