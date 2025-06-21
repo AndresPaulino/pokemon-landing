@@ -390,13 +390,13 @@ export default function Page() {
                 </WavyBackground>
             </section>
 
-            <div className="flex flex-wrap gap-4">
+            {/* <div className="flex flex-wrap gap-4">
                 {holographicCardExamples.map((card) => (
                     <HolographicCard key={card.id} variant={card.variant as any}>
                         <img src={card.image} alt={card.title} />
                     </HolographicCard>
                 ))}
-            </div>
+            </div> */}
 
             {/* Compare Demo Section */}
             <div className="w-full flex flex-col items-center justify-center">
