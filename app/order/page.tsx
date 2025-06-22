@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useSession, signIn } from 'next-auth/react';
+import { useSession, signIn, signOut } from 'next-auth/react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Link from 'next/link';
@@ -287,9 +287,12 @@ export default function OrderPage() {
                     <Link href="/orders" className="px-4 py-2 text-sm border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300">
                         Order History
                     </Link>
-                    <Link href="/api/auth/signout" className="px-4 py-2 text-sm border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300">
+                    <button 
+                        onClick={() => signOut({ callbackUrl: '/' })}
+                        className="px-4 py-2 text-sm border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300"
+                    >
                         Sign Out
-                    </Link>
+                    </button>
                 </div>
             </nav>
 

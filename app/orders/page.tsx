@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
+
 import Link from 'next/link';
 
 interface Order {
@@ -108,9 +109,12 @@ export default function OrdersPage() {
                     <Link href="/order" className="px-4 py-2 text-sm border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300">
                         Create New Card
                     </Link>
-                    <Link href="/api/auth/signout" className="px-4 py-2 text-sm border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300">
+                    <button 
+                        onClick={() => signOut({ callbackUrl: '/' })}
+                        className="px-4 py-2 text-sm border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300"
+                    >
                         Sign Out
-                    </Link>
+                    </button>
                 </div>
             </nav>
 

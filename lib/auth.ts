@@ -1,5 +1,6 @@
-// lib/auth.ts (simplified version for debugging)
+// lib/auth.ts (final version with both email/password and Google OAuth)
 import { NextAuthOptions } from 'next-auth'
+import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { createClient } from '@supabase/supabase-js'
 import bcrypt from 'bcryptjs'
@@ -7,7 +8,7 @@ import bcrypt from 'bcryptjs'
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
 
-// Create a simple Supabase client for credentials authentication only
+// Create Supabase client for our custom authentication
 const supabase = createClient(supabaseUrl, supabaseServiceRoleKey, {
   auth: {
     autoRefreshToken: false,
@@ -19,17 +20,12 @@ const supabase = createClient(supabaseUrl, supabaseServiceRoleKey, {
 })
 
 export const authOptions: NextAuthOptions = {
-  // Temporarily remove the SupabaseAdapter to avoid conflicts
-  // adapter: SupabaseAdapter({
-  //   url: supabaseUrl,
-  //   secret: supabaseServiceRoleKey,
-  // }),
+  // Don't use SupabaseAdapter - we'll handle user management manually
   providers: [
-    // Temporarily disable Google provider to isolate the issue
-    // GoogleProvider({
-    //   clientId: process.env.GOOGLE_CLIENT_ID!,
-    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    // }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
     CredentialsProvider({
       name: 'credentials',
       credentials: {
@@ -42,25 +38,19 @@ export const authOptions: NextAuthOptions = {
         }
 
         try {
-          console.log('Attempting to authenticate user:', credentials.email)
-          
-          // Query our custom auth_users table
+          // Query our custom auth_users table for email/password users
           const { data: user, error } = await supabase
             .from('auth_users')
             .select('*')
             .eq('email', credentials.email)
             .single()
 
-          console.log('Database query result:', { user: user ? 'found' : 'not found', error })
-
           if (error || !user) {
-            console.log('User not found or error:', error)
             return null
           }
 
           // Verify the password
           const isPasswordValid = await bcrypt.compare(credentials.password, user.password)
-          console.log('Password validation:', isPasswordValid)
 
           if (!isPasswordValid) {
             return null
@@ -74,7 +64,7 @@ export const authOptions: NextAuthOptions = {
             image: user.image || null,
           }
         } catch (error) {
-          console.error('Authentication error:', error)
+          console.error('Credentials authentication error:', error)
           return null
         }
       }
@@ -84,13 +74,63 @@ export const authOptions: NextAuthOptions = {
     strategy: 'jwt',
   },
   callbacks: {
+    async signIn({ user, account, profile }) {
+      // Handle Google OAuth users
+      if (account?.provider === 'google' && profile?.email) {
+        try {
+          // Check if user already exists in our auth_users table
+          const { data: existingUser, error: checkError } = await supabase
+            .from('auth_users')
+            .select('*')
+            .eq('email', profile.email)
+            .maybeSingle()
+
+          if (checkError && checkError.code !== 'PGRST116') {
+            console.error('Error checking existing Google user:', checkError)
+            return false
+          }
+
+          if (!existingUser) {
+            // Create new user for Google OAuth
+            const { data: newUser, error: insertError } = await supabase
+              .from('auth_users')
+              .insert([{
+                name: profile.name || user.name || 'Google User',
+                email: profile.email,
+                password: '', // Empty password for OAuth users
+                image: profile.picture || user.image,
+                email_verified: new Date().toISOString(),
+                provider: 'google'
+              }])
+              .select()
+              .single()
+
+            if (insertError) {
+              console.error('Error creating Google user:', insertError)
+              return false
+            }
+
+            // Update the user object with our database ID
+            user.id = newUser.id
+          } else {
+            // Use existing user's ID
+            user.id = existingUser.id
+          }
+        } catch (error) {
+          console.error('Google sign-in error:', error)
+          return false
+        }
+      }
+
+      return true
+    },
     async session({ session, token }) {
       if (session.user && token.sub) {
         session.user.id = token.sub
       }
       return session
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
       if (user) {
         token.sub = user.id
       }
