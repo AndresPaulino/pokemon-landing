@@ -51,65 +51,52 @@ export default function SignInPage() {
 
     return (
         <div
-            className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-x-hidden"
+            className="min-h-screen bg-slate-900 text-white overflow-x-hidden"
             data-oid="0yee:h8"
         >
             {/* Animated Background */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none" data-oid="xt_vvj1">
                 <div
-                    className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
+                    className="absolute -top-40 -right-40 w-80 h-80 bg-amber-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
                     data-oid="ccnk7_z"
                 ></div>
                 <div
-                    className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"
+                    className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"
                     data-oid="km70-.2"
                 ></div>
                 <div
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-amber-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"
                     data-oid="hjobi_l"
                 ></div>
             </div>
 
             {/* Navigation */}
             <nav
-                className="relative z-50 py-6 px-8 flex justify-between items-center backdrop-blur-sm bg-black/20 border-b border-white/10"
+                className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-sm py-6 px-8 flex justify-between items-center"
                 data-oid="6598h5-"
             >
                 <Link
                     href="/"
-                    className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                    className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
                     data-oid="qr1w9xi"
                 >
-                    PokePrint Me
+                    <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-16" />
                 </Link>
-                <div className="hidden md:flex space-x-8" data-oid="3a0j1ln">
-                    <Link
-                        href="/#gallery"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="c9_3xnx"
-                    >
-                        Gallery
-                    </Link>
-                    <Link
-                        href="/#process"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="ne0ghrp"
-                    >
-                        Process
-                    </Link>
-                </div>
                 <Link
                     href="/signup"
-                    className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                    className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                     data-oid="0776uqk"
                 >
-                    Sign Up
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
+                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-yellow-400 backdrop-blur-3xl">
+                        Sign Up
+                    </span>
                 </Link>
             </nav>
 
             {/* Sign In Form */}
             <section
-                className="relative z-10 min-h-screen flex items-center justify-center px-8 py-20"
+                className="relative z-10 min-h-screen flex items-center justify-center px-8 py-20 pt-32"
                 data-oid="tzajrdg"
             >
                 <div className="w-full max-w-md" data-oid="twbc.0s">
@@ -120,7 +107,7 @@ export default function SignInPage() {
                         {/* Header */}
                         <div className="text-center mb-8" data-oid="ontgw7k">
                             <h1
-                                className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                                className="text-4xl font-bold mb-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                                 data-oid="kwnan-."
                             >
                                 Welcome Back
@@ -143,7 +130,7 @@ export default function SignInPage() {
                             <div data-oid="k126x61">
                                 <label
                                     htmlFor="email"
-                                    className="block text-sm font-medium text-purple-300 mb-2"
+                                    className="block text-sm font-medium text-amber-300 mb-2"
                                     data-oid="-33v9j:"
                                 >
                                     Email Address
@@ -153,7 +140,7 @@ export default function SignInPage() {
                                     id="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300"
                                     placeholder="trainer@pokemon.com"
                                     required
                                     data-oid="n:koch:"
@@ -164,7 +151,7 @@ export default function SignInPage() {
                             <div data-oid="y7_:619">
                                 <label
                                     htmlFor="password"
-                                    className="block text-sm font-medium text-purple-300 mb-2"
+                                    className="block text-sm font-medium text-amber-300 mb-2"
                                     data-oid="pklfwdh"
                                 >
                                     Password
@@ -175,7 +162,7 @@ export default function SignInPage() {
                                         id="password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 pr-12"
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300 pr-12"
                                         placeholder="••••••••"
                                         required
                                         data-oid="xjx3610"
@@ -184,7 +171,7 @@ export default function SignInPage() {
                                     <button
                                         type="button"
                                         onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-amber-400 transition-colors duration-300"
                                         data-oid="1ndko2v"
                                     >
                                         {showPassword ? (
@@ -237,7 +224,7 @@ export default function SignInPage() {
                                 <label className="flex items-center" data-oid="ijylb4q">
                                     <input
                                         type="checkbox"
-                                        className="w-4 h-4 text-purple-600 bg-white/5 border-white/20 rounded focus:ring-purple-500 focus:ring-2"
+                                        className="w-4 h-4 text-amber-600 bg-white/5 border-white/20 rounded focus:ring-amber-500 focus:ring-2"
                                         data-oid="25zhujb"
                                     />
 
@@ -247,7 +234,7 @@ export default function SignInPage() {
                                 </label>
                                 <Link
                                     href="/forgot-password"
-                                    className="text-sm text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                                    className="text-sm text-amber-400 hover:text-amber-300 transition-colors duration-300"
                                     data-oid="_0ga5vu"
                                 >
                                     Forgot password?
@@ -258,7 +245,7 @@ export default function SignInPage() {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                                className="w-full px-8 py-4 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl text-lg font-semibold hover:from-amber-700 hover:to-yellow-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                                 data-oid="3h.nfa5"
                             >
                                 {isLoading ? (
@@ -355,7 +342,7 @@ export default function SignInPage() {
                                 don&apos;t have an account?{' '}
                                 <Link
                                     href="/signup"
-                                    className="text-purple-400 hover:text-purple-300 font-semibold transition-colors duration-300"
+                                    className="text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300"
                                     data-oid="16ks4ap"
                                 >
                                     Sign up here

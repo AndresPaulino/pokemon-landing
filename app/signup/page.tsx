@@ -49,65 +49,52 @@ export default function SignUpPage() {
 
     return (
         <div
-            className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white overflow-x-hidden"
+            className="min-h-screen bg-slate-900 text-white overflow-x-hidden"
             data-oid="sybs4nx"
         >
             {/* Animated Background */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none" data-oid="1hs9bhq">
                 <div
-                    className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
+                    className="absolute -top-40 -right-40 w-80 h-80 bg-amber-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"
                     data-oid="t73c--:"
                 ></div>
                 <div
-                    className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"
+                    className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"
                     data-oid="919bkib"
                 ></div>
                 <div
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-amber-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"
                     data-oid="bzhy8bf"
                 ></div>
             </div>
 
             {/* Navigation */}
             <nav
-                className="relative z-50 py-6 px-8 flex justify-between items-center backdrop-blur-sm bg-black/20 border-b border-white/10"
+                className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-sm py-6 px-8 flex justify-between items-center"
                 data-oid=":j7z3jm"
             >
                 <Link
                     href="/"
-                    className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                    className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
                     data-oid="2lwl43q"
                 >
-                    PokePrint Me
+                    <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-16" />
                 </Link>
-                <div className="hidden md:flex space-x-8" data-oid=":.:8gbu">
-                    <Link
-                        href="/#gallery"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="zlkhw0v"
-                    >
-                        Gallery
-                    </Link>
-                    <Link
-                        href="/#process"
-                        className="hover:text-purple-400 transition-colors duration-300"
-                        data-oid="bdjdky2"
-                    >
-                        Process
-                    </Link>
-                </div>
                 <Link
                     href="/signin"
-                    className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                    className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50"
                     data-oid="ftafbvw"
                 >
-                    Sign In
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
+                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-yellow-400 backdrop-blur-3xl">
+                        Sign In
+                    </span>
                 </Link>
             </nav>
 
             {/* Sign Up Form */}
             <section
-                className="relative z-10 min-h-screen flex items-center justify-center px-8 py-20"
+                className="relative z-10 min-h-screen flex items-center justify-center px-8 py-20 pt-32"
                 data-oid=".kom5qs"
             >
                 <div className="w-full max-w-md" data-oid="f1owc0g">
@@ -118,7 +105,7 @@ export default function SignUpPage() {
                         {/* Header */}
                         <div className="text-center mb-8" data-oid="skitnd0">
                             <h1
-                                className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                                className="text-4xl font-bold mb-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent"
                                 data-oid="xxvkxb:"
                             >
                                 Join the Adventure
@@ -135,7 +122,7 @@ export default function SignUpPage() {
                                 <div data-oid="010yhz6">
                                     <label
                                         htmlFor="firstName"
-                                        className="block text-sm font-medium text-purple-300 mb-2"
+                                        className="block text-sm font-medium text-amber-300 mb-2"
                                         data-oid="-j0b7v3"
                                     >
                                         First Name
@@ -146,7 +133,7 @@ export default function SignUpPage() {
                                         name="firstName"
                                         value={formData.firstName}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300"
                                         placeholder="Ash"
                                         required
                                         data-oid="u5cgman"
@@ -155,7 +142,7 @@ export default function SignUpPage() {
                                 <div data-oid="41n46pf">
                                     <label
                                         htmlFor="lastName"
-                                        className="block text-sm font-medium text-purple-300 mb-2"
+                                        className="block text-sm font-medium text-amber-300 mb-2"
                                         data-oid="05vf.i7"
                                     >
                                         Last Name
@@ -166,7 +153,7 @@ export default function SignUpPage() {
                                         name="lastName"
                                         value={formData.lastName}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300"
                                         placeholder="Ketchum"
                                         required
                                         data-oid=".07x:kp"
@@ -178,7 +165,7 @@ export default function SignUpPage() {
                             <div data-oid="y0d471k">
                                 <label
                                     htmlFor="email"
-                                    className="block text-sm font-medium text-purple-300 mb-2"
+                                    className="block text-sm font-medium text-amber-300 mb-2"
                                     data-oid="j_ru87b"
                                 >
                                     Email Address
@@ -189,7 +176,7 @@ export default function SignUpPage() {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300"
                                     placeholder="trainer@pokemon.com"
                                     required
                                     data-oid="o_nuafx"
@@ -200,7 +187,7 @@ export default function SignUpPage() {
                             <div data-oid="xu7-_dz">
                                 <label
                                     htmlFor="password"
-                                    className="block text-sm font-medium text-purple-300 mb-2"
+                                    className="block text-sm font-medium text-amber-300 mb-2"
                                     data-oid="3511dnn"
                                 >
                                     Password
@@ -212,7 +199,7 @@ export default function SignUpPage() {
                                         name="password"
                                         value={formData.password}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 pr-12"
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all duration-300 pr-12"
                                         placeholder="••••••••"
                                         required
                                         minLength={8}
@@ -222,7 +209,7 @@ export default function SignUpPage() {
                                     <button
                                         type="button"
                                         onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-amber-400 transition-colors duration-300"
                                         data-oid="mt4.m5c"
                                     >
                                         {showPassword ? (
@@ -277,7 +264,7 @@ export default function SignUpPage() {
                             <div data-oid="wh4svcp">
                                 <label
                                     htmlFor="confirmPassword"
-                                    className="block text-sm font-medium text-purple-300 mb-2"
+                                    className="block text-sm font-medium text-amber-300 mb-2"
                                     data-oid="dcpfjw-"
                                 >
                                     Confirm Password
@@ -291,7 +278,7 @@ export default function SignUpPage() {
                                         onChange={handleInputChange}
                                         className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 pr-12 ${
                                             passwordsMatch
-                                                ? 'border-white/20 focus:ring-purple-500'
+                                                ? 'border-white/20 focus:ring-amber-500'
                                                 : 'border-red-500 focus:ring-red-500'
                                         }`}
                                         placeholder="••••••••"
@@ -299,10 +286,10 @@ export default function SignUpPage() {
                                         data-oid="8stg:tv"
                                     />
 
-                                    <button
+                                                                            <button
                                         type="button"
                                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-amber-400 transition-colors duration-300"
                                         data-oid="cqskohr"
                                     >
                                         {showConfirmPassword ? (
@@ -362,7 +349,7 @@ export default function SignUpPage() {
                                     id="acceptTerms"
                                     checked={acceptTerms}
                                     onChange={(e) => setAcceptTerms(e.target.checked)}
-                                    className="w-4 h-4 text-purple-600 bg-white/5 border-white/20 rounded focus:ring-purple-500 focus:ring-2 mt-1"
+                                    className="w-4 h-4 text-amber-600 bg-white/5 border-white/20 rounded focus:ring-amber-500 focus:ring-2 mt-1"
                                     required
                                     data-oid="ixabr:i"
                                 />
@@ -375,7 +362,7 @@ export default function SignUpPage() {
                                     I agree to the{' '}
                                     <Link
                                         href="/terms"
-                                        className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                                        className="text-amber-400 hover:text-amber-300 transition-colors duration-300"
                                         data-oid="j9oz1z2"
                                     >
                                         Terms of Service
@@ -383,7 +370,7 @@ export default function SignUpPage() {
                                     and{' '}
                                     <Link
                                         href="/privacy"
-                                        className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                                        className="text-amber-400 hover:text-amber-300 transition-colors duration-300"
                                         data-oid="1b1_lfn"
                                     >
                                         Privacy Policy
@@ -395,7 +382,7 @@ export default function SignUpPage() {
                             <button
                                 type="submit"
                                 disabled={isLoading || !passwordsMatch || !acceptTerms}
-                                className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                                className="w-full px-8 py-4 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl text-lg font-semibold hover:from-amber-700 hover:to-yellow-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                                 data-oid="gvqd7g_"
                             >
                                 {isLoading ? (
@@ -490,7 +477,7 @@ export default function SignUpPage() {
                                 Already have an account?{' '}
                                 <Link
                                     href="/signin"
-                                    className="text-purple-400 hover:text-purple-300 font-semibold transition-colors duration-300"
+                                    className="text-amber-400 hover:text-amber-300 font-semibold transition-colors duration-300"
                                     data-oid="6:kqm7."
                                 >
                                     Sign in here
