@@ -57,7 +57,7 @@ export default function OrdersPage() {
         switch (status) {
             case 'paid': return 'text-green-400 bg-green-400/20';
             case 'processing': return 'text-blue-400 bg-blue-400/20';
-            case 'completed': return 'text-purple-400 bg-purple-400/20';
+            case 'completed': return 'text-amber-400 bg-amber-400/20';
             case 'cancelled': return 'text-red-400 bg-red-400/20';
             default: return 'text-yellow-400 bg-yellow-400/20';
         }
@@ -75,7 +75,7 @@ export default function OrdersPage() {
 
     if (status === 'loading' || loading) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center">
+            <div className="min-h-screen bg-slate-900 flex items-center justify-center">
                 <div className="text-white">Loading...</div>
             </div>
         );
@@ -83,11 +83,11 @@ export default function OrdersPage() {
 
     if (!session) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center">
+            <div className="min-h-screen bg-slate-900 flex items-center justify-center">
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 text-center max-w-md mx-auto">
                     <h2 className="text-2xl font-bold text-white mb-4">Sign In Required</h2>
                     <p className="text-gray-300 mb-6">Please sign in to view your order history</p>
-                    <Link href="/api/auth/signin" className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300">
+                    <Link href="/api/auth/signin" className="px-6 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl font-medium hover:from-amber-700 hover:to-yellow-700 transition-all duration-300">
                         Sign In
                     </Link>
                 </div>
@@ -96,14 +96,21 @@ export default function OrdersPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
+        <div className="min-h-screen bg-slate-900 text-white">
             {/* Background Elements */}
-            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+            <div className="fixed inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-amber-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-amber-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+            </div>
             
             {/* Navigation */}
-            <nav className="relative z-20 flex items-center justify-between p-6">
-                <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    PokéCards
+            <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-sm py-6 px-8 flex justify-between items-center">
+                <Link
+                    href="/"
+                    className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
+                >
+                    <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-16" />
                 </Link>
                 <div className="flex items-center space-x-4">
                     <Link href="/order" className="px-4 py-2 text-sm border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300">
@@ -119,8 +126,8 @@ export default function OrdersPage() {
             </nav>
 
             {/* Header */}
-            <div className="text-center py-12">
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+            <div className="text-center py-12 pt-32">
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent mb-4">
                     Order History
                 </h1>
                 <p className="text-gray-300 text-lg">
@@ -133,8 +140,8 @@ export default function OrdersPage() {
                 {orders.length === 0 ? (
                     <div className="text-center py-12">
                         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 max-w-md mx-auto">
-                            <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg className="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                 </svg>
                             </div>
@@ -142,7 +149,7 @@ export default function OrdersPage() {
                             <p className="text-gray-300 mb-6">You haven't created any custom cards yet.</p>
                             <Link 
                                 href="/order" 
-                                className="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
+                                className="inline-block px-6 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl font-medium hover:from-amber-700 hover:to-yellow-700 transition-all duration-300"
                             >
                                 Create Your First Card
                             </Link>
@@ -159,7 +166,7 @@ export default function OrdersPage() {
                                                 <h3 className="text-xl font-semibold text-white mb-1">
                                                     {order.pokemon_name}
                                                 </h3>
-                                                <p className="text-purple-300 text-sm">
+                                                <p className="text-amber-300 text-sm">
                                                     {order.card_type} • {order.element} • {order.hp} HP
                                                 </p>
                                             </div>
@@ -218,6 +225,15 @@ export default function OrdersPage() {
                     </div>
                 )}
             </div>
+            
+            <style jsx>{`
+                .animation-delay-2000 {
+                    animation-delay: 2s;
+                }
+                .animation-delay-4000 {
+                    animation-delay: 4s;
+                }
+            `}</style>
         </div>
     );
 }

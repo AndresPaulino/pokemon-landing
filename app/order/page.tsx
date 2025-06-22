@@ -96,7 +96,7 @@ function CheckoutForm({ orderData, onSuccess }: { orderData: OrderData; onSucces
             <button
                 type="submit"
                 disabled={!stripe || isProcessing}
-                className="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-medium text-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-4 px-6 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl font-medium text-lg hover:from-amber-700 hover:to-yellow-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isProcessing ? 'Processing...' : 
                     `Pay $${((3498 + (orderData.useAI ? 999 : 0)) / 100).toFixed(2)}`
@@ -132,7 +132,7 @@ export default function OrderPage() {
     // Show loading while checking authentication
     if (status === 'loading') {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center">
+            <div className="min-h-screen bg-slate-900 flex items-center justify-center">
                 <div className="text-white">Loading...</div>
             </div>
         );
@@ -141,13 +141,13 @@ export default function OrderPage() {
     // Show sign in if not authenticated
     if (!session) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center">
+            <div className="min-h-screen bg-slate-900 flex items-center justify-center">
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 text-center max-w-md mx-auto">
                     <h2 className="text-2xl font-bold text-white mb-4">Sign In Required</h2>
                     <p className="text-gray-300 mb-6">Please sign in to create your custom Pokémon card</p>
                     <button
                         onClick={() => signIn()}
-                        className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl font-medium hover:from-amber-700 hover:to-yellow-700 transition-all duration-300"
                     >
                         Sign In
                     </button>
@@ -159,7 +159,7 @@ export default function OrderPage() {
     // Show success page
     if (orderComplete) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center">
+            <div className="min-h-screen bg-slate-900 flex items-center justify-center">
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 text-center max-w-md mx-auto">
                     <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,7 +169,7 @@ export default function OrderPage() {
                     <h2 className="text-2xl font-bold text-white mb-4">Order Complete!</h2>
                     <p className="text-gray-300 mb-6">Your custom Pokémon card is being created. You'll receive an email when it's ready!</p>
                     <div className="space-y-3">
-                        <Link href="/orders" className="block px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300">
+                        <Link href="/orders" className="block px-6 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl font-medium hover:from-amber-700 hover:to-yellow-700 transition-all duration-300">
                             View Order History
                         </Link>
                         <Link href="/" className="block px-6 py-3 border border-white/20 rounded-xl font-medium hover:bg-white/10 transition-all duration-300">
@@ -274,14 +274,21 @@ export default function OrderPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white relative overflow-hidden">
+        <div className="min-h-screen bg-slate-900 text-white relative overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+            <div className="fixed inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-amber-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-amber-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+            </div>
             
             {/* Navigation */}
-            <nav className="relative z-20 flex items-center justify-between p-6">
-                <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    PokéCards
+            <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-sm py-6 px-8 flex justify-between items-center">
+                <Link
+                    href="/"
+                    className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
+                >
+                    <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-16" />
                 </Link>
                 <div className="flex items-center space-x-4">
                     <Link href="/orders" className="px-4 py-2 text-sm border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300">
@@ -297,14 +304,14 @@ export default function OrderPage() {
             </nav>
 
             {/* Progress Steps */}
-            <div className="relative z-10 py-8">
+            <div className="relative z-10 py-8 pt-32">
                 <div className="max-w-4xl mx-auto px-8">
                     <div className="flex items-center justify-center mb-8">
                         {[1, 2, 3, 4].map((step) => (
                             <div key={step} className="flex items-center">
                                 <div className={`w-12 h-12 rounded-full flex items-center justify-center font-medium transition-all duration-300 ${
                                     step <= currentStep
-                                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                                        ? 'bg-gradient-to-r from-amber-600 to-yellow-600 text-white'
                                         : 'bg-white/10 text-gray-400'
                                 }`}>
                                     {step}
@@ -312,14 +319,14 @@ export default function OrderPage() {
                                 {step < 4 && (
                                     <div className={`w-20 h-1 mx-4 transition-all duration-300 ${
                                         step < currentStep
-                                            ? 'bg-gradient-to-r from-purple-600 to-pink-600'
+                                            ? 'bg-gradient-to-r from-amber-600 to-yellow-600'
                                             : 'bg-white/20'
                                     }`}></div>
                                 )}
                             </div>
                         ))}
                     </div>
-                    <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
                         {getStepTitle()}
                     </h1>
                 </div>
@@ -334,13 +341,13 @@ export default function OrderPage() {
                             <div className="space-y-6">
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-purple-300 mb-2">
+                                        <label className="block text-sm font-medium text-amber-300 mb-2">
                                             Card Type
                                         </label>
                                         <select
                                             value={orderData.cardType}
                                             onChange={(e) => handleInputChange('cardType', e.target.value)}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                                         >
                                             <option value="">Select type</option>
                                             {cardTypes.map((type) => (
@@ -352,13 +359,13 @@ export default function OrderPage() {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-purple-300 mb-2">
+                                        <label className="block text-sm font-medium text-amber-300 mb-2">
                                             Element
                                         </label>
                                         <select
                                             value={orderData.element}
                                             onChange={(e) => handleInputChange('element', e.target.value)}
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                                         >
                                             <option value="">Select element</option>
                                             {elements.map((element) => (
@@ -372,7 +379,7 @@ export default function OrderPage() {
 
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-purple-300 mb-2">
+                                        <label className="block text-sm font-medium text-amber-300 mb-2">
                                             Pokémon Name
                                         </label>
                                         <input
@@ -380,12 +387,12 @@ export default function OrderPage() {
                                             value={orderData.pokemonName}
                                             onChange={(e) => handleInputChange('pokemonName', e.target.value)}
                                             placeholder="Enter Pokémon name"
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
                                         />
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-purple-300 mb-2">
+                                        <label className="block text-sm font-medium text-amber-300 mb-2">
                                             HP
                                         </label>
                                         <input
@@ -394,19 +401,19 @@ export default function OrderPage() {
                                             onChange={(e) => handleInputChange('hp', e.target.value)}
                                             min="1"
                                             max="999"
-                                            className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                            className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-purple-300 mb-2">
+                                    <label className="block text-sm font-medium text-amber-300 mb-2">
                                         Rarity
                                     </label>
                                     <select
                                         value={orderData.rarity}
                                         onChange={(e) => handleInputChange('rarity', e.target.value)}
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                                     >
                                         {rarities.map((rarity) => (
                                             <option key={rarity} value={rarity} className="bg-gray-800">
@@ -422,11 +429,11 @@ export default function OrderPage() {
                         {currentStep === 2 && (
                             <div className="space-y-6">
                                 <div className="flex justify-between items-center">
-                                    <h3 className="text-xl font-semibold text-purple-300">Add Moves</h3>
+                                    <h3 className="text-xl font-semibold text-amber-300">Add Moves</h3>
                                     {orderData.moves.length < 4 && (
                                         <button
                                             onClick={addMove}
-                                            className="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors"
+                                            className="px-4 py-2 bg-amber-600 rounded-lg hover:bg-amber-700 transition-colors"
                                         >
                                             Add Move
                                         </button>
@@ -437,7 +444,7 @@ export default function OrderPage() {
                                     {orderData.moves.map((move, index) => (
                                         <div key={index} className="p-4 bg-white/5 border border-white/10 rounded-xl">
                                             <div className="flex justify-between items-center mb-3">
-                                                <h4 className="text-sm font-medium text-purple-300">
+                                                <h4 className="text-sm font-medium text-amber-300">
                                                     Move {index + 1}
                                                 </h4>
                                                 {orderData.moves.length > 1 && (
@@ -455,14 +462,14 @@ export default function OrderPage() {
                                                     placeholder="Move name"
                                                     value={move.name}
                                                     onChange={(e) => handleMoveChange(index, 'name', e.target.value)}
-                                                    className="px-3 py-2 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                                    className="px-3 py-2 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
                                                 />
                                                 <input
                                                     type="text"
                                                     placeholder="Damage (e.g., 50)"
                                                     value={move.damage}
                                                     onChange={(e) => handleMoveChange(index, 'damage', e.target.value)}
-                                                    className="px-3 py-2 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                                    className="px-3 py-2 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
                                                 />
                                             </div>
                                             <textarea
@@ -470,7 +477,7 @@ export default function OrderPage() {
                                                 value={move.description}
                                                 onChange={(e) => handleMoveChange(index, 'description', e.target.value)}
                                                 rows={2}
-                                                className="w-full mt-3 px-3 py-2 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                                                className="w-full mt-3 px-3 py-2 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"
                                             />
                                         </div>
                                     ))}
@@ -482,13 +489,13 @@ export default function OrderPage() {
                         {currentStep === 3 && (
                             <div className="space-y-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-purple-300 mb-4">
+                                    <label className="block text-sm font-medium text-amber-300 mb-4">
                                         Reference Image (Optional)
                                     </label>
                                     <div
                                         className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors ${
                                             dragActive
-                                                ? 'border-purple-500 bg-purple-500/10'
+                                                ? 'border-amber-500 bg-amber-500/10'
                                                 : 'border-white/30 hover:border-white/50'
                                         }`}
                                         onDragOver={handleDragOver}
@@ -518,7 +525,7 @@ export default function OrderPage() {
                                                 <p className="text-gray-300">Drag & drop an image or</p>
                                                 <button
                                                     onClick={() => fileInputRef.current?.click()}
-                                                    className="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors"
+                                                    className="px-4 py-2 bg-amber-600 rounded-lg hover:bg-amber-700 transition-colors"
                                                 >
                                                     Browse Files
                                                 </button>
@@ -541,16 +548,16 @@ export default function OrderPage() {
                                             id="useAI"
                                             checked={orderData.useAI}
                                             onChange={(e) => handleInputChange('useAI', e.target.checked)}
-                                            className="w-4 h-4 text-purple-600 bg-white/5 border-white/20 rounded focus:ring-purple-500"
+                                            className="w-4 h-4 text-amber-600 bg-white/5 border-white/20 rounded focus:ring-amber-500"
                                         />
-                                        <label htmlFor="useAI" className="text-purple-300">
+                                        <label htmlFor="useAI" className="text-amber-300">
                                             Use AI for card creation (+$9.99)
                                         </label>
                                     </div>
 
                                     {orderData.useAI && (
                                         <div>
-                                            <label className="block text-sm font-medium text-purple-300 mb-2">
+                                            <label className="block text-sm font-medium text-amber-300 mb-2">
                                                 AI Prompt
                                             </label>
                                             <textarea
@@ -558,14 +565,14 @@ export default function OrderPage() {
                                                 onChange={(e) => handleInputChange('aiPrompt', e.target.value)}
                                                 placeholder="Describe how you want your card to look..."
                                                 rows={4}
-                                                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"
                                             />
                                         </div>
                                     )}
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-purple-300 mb-2">
+                                    <label className="block text-sm font-medium text-amber-300 mb-2">
                                         Personal Message (Optional)
                                     </label>
                                     <textarea
@@ -573,7 +580,7 @@ export default function OrderPage() {
                                         onChange={(e) => handleInputChange('personalMessage', e.target.value)}
                                         placeholder="Add a personal message to your card..."
                                         rows={3}
-                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"
                                     />
                                 </div>
                             </div>
@@ -585,7 +592,7 @@ export default function OrderPage() {
                                 <div className="space-y-6">
                                     {/* Order Summary */}
                                     <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                                        <h3 className="text-xl font-semibold text-purple-300 mb-4">Order Summary</h3>
+                                        <h3 className="text-xl font-semibold text-amber-300 mb-4">Order Summary</h3>
                                         <div className="space-y-3 text-sm">
                                             <div className="flex justify-between">
                                                 <span>Card Type:</span>
@@ -632,7 +639,7 @@ export default function OrderPage() {
 
                                     {/* Payment Form */}
                                     <div>
-                                        <h3 className="text-xl font-semibold text-purple-300 mb-4">Payment Information</h3>
+                                        <h3 className="text-xl font-semibold text-amber-300 mb-4">Payment Information</h3>
                                         <CheckoutForm orderData={orderData} onSuccess={() => setOrderComplete(true)} />
                                     </div>
                                 </div>
@@ -655,7 +662,7 @@ export default function OrderPage() {
                                     <button
                                         onClick={nextStep}
                                         disabled={!canProceed()}
-                                        className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="px-6 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl font-medium hover:from-amber-700 hover:to-yellow-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         Next
                                     </button>
@@ -665,6 +672,15 @@ export default function OrderPage() {
                     </div>
                 </div>
             </section>
+            
+            <style jsx>{`
+                .animation-delay-2000 {
+                    animation-delay: 2s;
+                }
+                .animation-delay-4000 {
+                    animation-delay: 4s;
+                }
+            `}</style>
         </div>
     );
 }
