@@ -1,4 +1,3 @@
-// app/api/orders/route.ts
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
@@ -10,8 +9,9 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 )
 
+// Remove the invalid apiVersion - let the SDK use its default compatible version
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-05-28.basil',
+  // apiVersion will be automatically set to the version compatible with stripe-node v18.2.1
 })
 
 export async function POST(request: NextRequest) {
@@ -76,55 +76,57 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Failed to create order' }, { status: 500 })
     }
 
-    // Insert moves
-    const movesData = moves.map((move: any, index: number) => ({
-      order_id: order.id,
-      name: move.name,
-      damage: move.damage,
-      description: move.description,
-      move_order: index,
-    }))
+    // Insert moves (if any)
+    if (moves && moves.length > 0) {
+      const movesData = moves.map((move: any, index: number) => ({
+        order_id: order.id,
+        move_name: move.name,
+        damage: move.damage,
+        description: move.description,
+        move_order: index
+      }))
 
-    const { error: movesError } = await supabase
-      .from('order_moves')
-      .insert(movesData)
+      const { error: movesError } = await supabase
+        .from('order_moves')
+        .insert(movesData)
 
-    if (movesError) {
-      console.error('Moves insertion error:', movesError)
+      if (movesError) {
+        console.error('Moves insertion error:', movesError)
+      }
     }
 
     // Handle image upload if provided
     if (imageFile) {
-      const fileName = `${session.user.id}/${order.id}/${Date.now()}-${imageFile.name}`
-      
-      const { error: uploadError } = await supabase.storage
-        .from('order-images')
-        .upload(fileName, imageFile)
+      // Note: This assumes imageFile is a base64 string or file data
+      // You'll need to implement the actual file upload logic based on your frontend
+      const { error: imageError } = await supabase
+        .from('order_images')
+        .insert({
+          order_id: order.id,
+          image_url: imageFile, // This should be the uploaded file URL
+          image_type: 'reference'
+        })
 
-      if (!uploadError) {
-        await supabase
-          .from('order_images')
-          .insert({
-            order_id: order.id,
-            file_path: fileName,
-            file_name: imageFile.name,
-            file_size: imageFile.size,
-          })
+      if (imageError) {
+        console.error('Image insertion error:', imageError)
       }
     }
 
     return NextResponse.json({
-      orderId: order.id,
       clientSecret: paymentIntent.client_secret,
+      orderId: order.id
     })
 
   } catch (error) {
-    console.error('Order creation error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    console.error('Order API error:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
     
@@ -136,8 +138,7 @@ export async function GET() {
       .from('orders')
       .select(`
         *,
-        order_moves(*),
-        order_images(*)
+        order_images (*)
       `)
       .eq('user_id', session.user.id)
       .order('created_at', { ascending: false })
@@ -150,7 +151,10 @@ export async function GET() {
     return NextResponse.json({ orders })
 
   } catch (error) {
-    console.error('Orders fetch error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    console.error('Orders GET error:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }
