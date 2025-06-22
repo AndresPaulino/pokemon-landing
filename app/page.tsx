@@ -19,6 +19,7 @@ import { WavyBackground } from '@/components/ui/wavy-background';
 import { GlareCard } from '@/components/ui/glare-card';
 import { Compare } from '@/components/ui/compare';
 import { HolographicCard } from '@/components/ui/holographic-card';
+import { useAuthRedirect } from '@/lib/useAuthRedirect';
 
 function HowItWorksGrid() {
     return (
@@ -171,6 +172,7 @@ export default function Page() {
     const [isVisible, setIsVisible] = useState(false);
     const [scrollY, setScrollY] = useState(0);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { redirectToOrder } = useAuthRedirect();
 
     const navItems = [
         { name: 'Gallery', link: '#gallery' },
@@ -302,7 +304,10 @@ export default function Page() {
                         <img src="/logo/PokePrint-Me-Logo.png" alt="PokePrint Me" className="w-25 h-16" />
                     </a>
                     <NavItems items={navItems} data-oid="lh3aizi" />
-                    <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                    <button 
+                        onClick={redirectToOrder}
+                        className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                    >
                         <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
                         <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-yellow-400 backdrop-blur-3xl">
                             Order Now
@@ -341,7 +346,10 @@ export default function Page() {
                                 {item.name}
                             </a>
                         ))}
-                        <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50 mt-4">
+                        <button 
+                            onClick={redirectToOrder}
+                            className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50 mt-4"
+                        >
                             <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
                             <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-yellow-400 backdrop-blur-3xl">
                                 Order Now
@@ -370,7 +378,10 @@ export default function Page() {
                             Create your own custom Pokémon trainer card with AI-powered anime
                             transformation. Unique, personal, and crafted just for you!
                         </p>
-                        <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                        <button 
+                            onClick={redirectToOrder}
+                            className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                        >
                             <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
                             <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-lg font-bold text-yellow-400 backdrop-blur-3xl">
                                 Get Started
@@ -516,7 +527,10 @@ export default function Page() {
                             Transform your favorite photo into a one-of-a-kind Pokémon card. Unique,
                             personal, and crafted just for you—start your journey today!
                         </p>
-                        <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                        <button 
+                            onClick={redirectToOrder}
+                            className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+                        >
                             <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#4169E1_50%,#FFD700_100%)]" />
                             <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-1 text-xl font-bold text-yellow-400 backdrop-blur-3xl">
                                 Create My Card
