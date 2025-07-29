@@ -40,8 +40,17 @@ function CheckoutForm({ orderData, onSuccess }: { orderData: OrderData; onSucces
                 return;
             }
 
-            // Redirect to Stripe checkout
-            window.location.href = 'https://buy.stripe.com/test_dRm5kD13M2TVekG6E51gs00';
+            // Redirect to appropriate Stripe checkout based on AI selection
+            const stripeLink = orderData.useAI
+                ? process.env.NEXT_PUBLIC_STRIPE_LINK_AI
+                : process.env.NEXT_PUBLIC_STRIPE_LINK_NON_AI;
+
+            if (!stripeLink) {
+                setError('Payment configuration error. Please try again.');
+                return;
+            }
+
+            window.location.href = stripeLink;
         } catch (err) {
             setError('Something went wrong. Please try again.');
         } finally {
@@ -64,7 +73,7 @@ function CheckoutForm({ orderData, onSuccess }: { orderData: OrderData; onSucces
             >
                 {isProcessing
                     ? 'Processing...'
-                    : `Pay with Stripe - $${((3498 + (orderData.useAI ? 999 : 0)) / 100).toFixed(2)}`}
+                    : `Pay with Stripe - $${(24.99 + (orderData.useAI ? 10 : 0)).toFixed(2)}`}
             </button>
         </div>
     );
@@ -643,7 +652,7 @@ export default function OrderPage() {
                                         <label htmlFor="useAI" className="text-amber-300">
                                             Use AI for card creation{' '}
                                             <span className="text-amber-400 font-medium">
-                                                +$9.99
+                                                +$10.00
                                             </span>{' '}
                                             <span className="inline-flex items-center ml-2 px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-400/50 text-sm">
                                                 RECOMMENDED
@@ -724,22 +733,21 @@ export default function OrderPage() {
                                         <div className="border-t border-white/20 pt-3 mt-3">
                                             <div className="flex justify-between">
                                                 <span>Base Price:</span>
-                                                <span>$34.98</span>
+                                                <span>$24.99</span>
                                             </div>
                                             {orderData.useAI && (
                                                 <div className="flex justify-between">
                                                     <span>AI Enhancement:</span>
-                                                    <span>$9.99</span>
+                                                    <span>$10.00</span>
                                                 </div>
                                             )}
                                             <div className="flex justify-between font-semibold text-lg">
                                                 <span>Total:</span>
                                                 <span>
                                                     $
-                                                    {(
-                                                        (3498 + (orderData.useAI ? 999 : 0)) /
-                                                        100
-                                                    ).toFixed(2)}
+                                                    {(24.99 + (orderData.useAI ? 10 : 0)).toFixed(
+                                                        2,
+                                                    )}
                                                 </span>
                                             </div>
                                         </div>
