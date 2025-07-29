@@ -2,11 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Link from 'next/link';
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 interface OrderData {
     cardType: string;
@@ -22,46 +18,30 @@ interface OrderData {
 }
 
 function CheckoutForm({ orderData, onSuccess }: { orderData: OrderData; onSuccess: () => void }) {
-    const stripe = useStripe();
-    const elements = useElements();
     const [isProcessing, setIsProcessing] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault();
-
-        if (!stripe || !elements) return;
-
+    const handleStripePayment = async () => {
         setIsProcessing(true);
         setError(null);
 
         try {
-            // Create order and get payment intent
+            // Create order first
             const response = await fetch('/api/orders', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(orderData),
             });
 
-            const { clientSecret, orderId, error: orderError } = await response.json();
+            const { orderId, error: orderError } = await response.json();
 
             if (orderError) {
                 setError(orderError);
                 return;
             }
 
-            // Confirm payment
-            const { error: paymentError } = await stripe.confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card: elements.getElement(CardElement)!,
-                },
-            });
-
-            if (paymentError) {
-                setError(paymentError.message || 'Payment failed');
-            } else {
-                onSuccess();
-            }
+            // Redirect to Stripe checkout
+            window.location.href = 'https://buy.stripe.com/test_dRm5kD13M2TVekG6E51gs00';
         } catch (err) {
             setError('Something went wrong. Please try again.');
         } finally {
@@ -70,39 +50,23 @@ function CheckoutForm({ orderData, onSuccess }: { orderData: OrderData; onSucces
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="space-y-6">
             {error && (
                 <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-red-300">
                     {error}
                 </div>
             )}
 
-            <div className="p-4 bg-white/5 border border-white/20 rounded-xl">
-                <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#ffffff',
-                                '::placeholder': {
-                                    color: '#9ca3af',
-                                },
-                            },
-                        },
-                    }}
-                />
-            </div>
-
             <button
-                type="submit"
-                disabled={!stripe || isProcessing}
+                onClick={handleStripePayment}
+                disabled={isProcessing}
                 className="w-full py-4 px-6 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl font-medium text-lg hover:from-amber-700 hover:to-yellow-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isProcessing
                     ? 'Processing...'
-                    : `Pay $${((3498 + (orderData.useAI ? 999 : 0)) / 100).toFixed(2)}`}
+                    : `Pay with Stripe - $${((3498 + (orderData.useAI ? 999 : 0)) / 100).toFixed(2)}`}
             </button>
-        </form>
+        </div>
     );
 }
 
@@ -724,80 +688,75 @@ export default function OrderPage() {
 
                         {/* Step 4: Review & Payment */}
                         {currentStep === 4 && (
-                            <Elements stripe={stripePromise}>
-                                <div className="space-y-6">
-                                    {/* Order Summary */}
-                                    <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                                        <h3 className="text-xl font-semibold text-amber-300 mb-4">
-                                            Order Summary
-                                        </h3>
-                                        <div className="space-y-3 text-sm">
+                            <div className="space-y-6">
+                                {/* Order Summary */}
+                                <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                                    <h3 className="text-xl font-semibold text-amber-300 mb-4">
+                                        Order Summary
+                                    </h3>
+                                    <div className="space-y-3 text-sm">
+                                        <div className="flex justify-between">
+                                            <span>Card Type:</span>
+                                            <span>{orderData.cardType}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span>Element:</span>
+                                            <span>{orderData.element}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span>Pokémon Name:</span>
+                                            <span>{orderData.pokemonName}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span>HP:</span>
+                                            <span>{orderData.hp}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span>Rarity:</span>
+                                            <span>{orderData.rarity}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span>Moves:</span>
+                                            <span>
+                                                {orderData.moves.filter((move) => move.name).length}
+                                            </span>
+                                        </div>
+                                        <div className="border-t border-white/20 pt-3 mt-3">
                                             <div className="flex justify-between">
-                                                <span>Card Type:</span>
-                                                <span>{orderData.cardType}</span>
+                                                <span>Base Price:</span>
+                                                <span>$34.98</span>
                                             </div>
-                                            <div className="flex justify-between">
-                                                <span>Element:</span>
-                                                <span>{orderData.element}</span>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <span>Pokémon Name:</span>
-                                                <span>{orderData.pokemonName}</span>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <span>HP:</span>
-                                                <span>{orderData.hp}</span>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <span>Rarity:</span>
-                                                <span>{orderData.rarity}</span>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <span>Moves:</span>
-                                                <span>
-                                                    {
-                                                        orderData.moves.filter((move) => move.name)
-                                                            .length
-                                                    }
-                                                </span>
-                                            </div>
-                                            <div className="border-t border-white/20 pt-3 mt-3">
+                                            {orderData.useAI && (
                                                 <div className="flex justify-between">
-                                                    <span>Base Price:</span>
-                                                    <span>$34.98</span>
+                                                    <span>AI Enhancement:</span>
+                                                    <span>$9.99</span>
                                                 </div>
-                                                {orderData.useAI && (
-                                                    <div className="flex justify-between">
-                                                        <span>AI Enhancement:</span>
-                                                        <span>$9.99</span>
-                                                    </div>
-                                                )}
-                                                <div className="flex justify-between font-semibold text-lg">
-                                                    <span>Total:</span>
-                                                    <span>
-                                                        $
-                                                        {(
-                                                            (3498 + (orderData.useAI ? 999 : 0)) /
-                                                            100
-                                                        ).toFixed(2)}
-                                                    </span>
-                                                </div>
+                                            )}
+                                            <div className="flex justify-between font-semibold text-lg">
+                                                <span>Total:</span>
+                                                <span>
+                                                    $
+                                                    {(
+                                                        (3498 + (orderData.useAI ? 999 : 0)) /
+                                                        100
+                                                    ).toFixed(2)}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-
-                                    {/* Payment Form */}
-                                    <div>
-                                        <h3 className="text-xl font-semibold text-amber-300 mb-4">
-                                            Payment Information
-                                        </h3>
-                                        <CheckoutForm
-                                            orderData={orderData}
-                                            onSuccess={() => setOrderComplete(true)}
-                                        />
-                                    </div>
                                 </div>
-                            </Elements>
+
+                                {/* Payment Form */}
+                                <div>
+                                    <h3 className="text-xl font-semibold text-amber-300 mb-4">
+                                        Payment Information
+                                    </h3>
+                                    <CheckoutForm
+                                        orderData={orderData}
+                                        onSuccess={() => setOrderComplete(true)}
+                                    />
+                                </div>
+                            </div>
                         )}
 
                         {/* Navigation Buttons */}
