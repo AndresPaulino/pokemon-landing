@@ -551,21 +551,21 @@ export default function Page() {
                     </div>
                     <div className="flex justify-center space-x-6" data-oid="b:a1x.r">
                         <a
-                            href="#"
+                            href="/legal"
                             className="text-gray-400 hover:text-amber-400 transition-colors duration-300"
                             data-oid="_4i-gtp"
                         >
                             Privacy Policy
                         </a>
                         <a
-                            href="#"
+                            href="/legal"
                             className="text-gray-400 hover:text-amber-400 transition-colors duration-300"
                             data-oid="yp83kaz"
                         >
                             Terms of Service
                         </a>
                         <a
-                            href="#"
+                            href="mailto:support@pokeprint.me"
                             className="text-gray-400 hover:text-amber-400 transition-colors duration-300"
                             data-oid="h3s9s04"
                         >
