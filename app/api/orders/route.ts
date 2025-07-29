@@ -37,8 +37,8 @@ export async function POST(request: NextRequest) {
     } = body
 
     // Calculate total amount (in cents)
-    const basePrice = 3498 // $34.98
-    const aiPrice = 999 // $9.99
+    const basePrice = 2499 // $24.99
+    const aiPrice = 1000 // $10.00
     const totalAmount = basePrice + (useAI ? aiPrice : 0)
 
     // Create Stripe Payment Intent
