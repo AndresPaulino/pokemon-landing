@@ -89,12 +89,12 @@ export default function OrderPage() {
     const [orderComplete, setOrderComplete] = useState(false);
     const [showNoAIModal, setShowNoAIModal] = useState(false);
     const [orderData, setOrderData] = useState<OrderData>({
-        cardType: '',
+        cardType: 'Pokemon',
         element: '',
         pokemonName: '',
         hp: '100',
         moves: [{ name: '', damage: '', description: '' }],
-        rarity: 'Common',
+        rarity: 'Full Art',
         image: null,
         useAI: false,
         aiPrompt: '',
@@ -384,7 +384,6 @@ export default function OrderPage() {
                                             }
                                             className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                                         >
-                                            <option value="">Select type</option>
                                             {cardTypes.map((type) => (
                                                 <option
                                                     key={type}
@@ -392,9 +391,26 @@ export default function OrderPage() {
                                                     className="bg-gray-800"
                                                 >
                                                     {type}
+                                                    {type === 'Pokemon' && ' ★'}
                                                 </option>
                                             ))}
                                         </select>
+                                        {orderData.cardType === 'Pokemon' && (
+                                            <div className="mt-2 flex items-center text-amber-400 text-sm">
+                                                <svg
+                                                    className="w-4 h-4 mr-1"
+                                                    fill="currentColor"
+                                                    viewBox="0 0 20 20"
+                                                >
+                                                    <path
+                                                        fillRule="evenodd"
+                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                        clipRule="evenodd"
+                                                    />
+                                                </svg>
+                                                Recommended for most orders
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div>
@@ -473,9 +489,26 @@ export default function OrderPage() {
                                                 className="bg-gray-800"
                                             >
                                                 {rarity}
+                                                {rarity === 'Full Art' && ' ★'}
                                             </option>
                                         ))}
                                     </select>
+                                    {orderData.rarity === 'Full Art' && (
+                                        <div className="mt-2 flex items-center text-amber-400 text-sm">
+                                            <svg
+                                                className="w-4 h-4 mr-1"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    fillRule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clipRule="evenodd"
+                                                />
+                                            </svg>
+                                            Recommended: Image takes up the entire card
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         )}
