@@ -181,9 +181,9 @@ export default function OrderPage() {
         );
     }
 
-    const cardTypes = ['Trainer', 'Pokemon', 'Energy', 'Item'];
+    const cardTypes = ['Trainer', 'Pokemon', 'Item'];
     const elements = ['Fire', 'Water', 'Electric', 'Grass', 'Psychic', 'Fighting', 'Dark', 'Steel', 'Fairy', 'Dragon', 'Normal'];
-    const rarities = ['Common', 'Uncommon', 'Rare', 'Ultra Rare', 'Legendary'];
+    const rarities = ['Common', 'Full Art'];
 
     const handleInputChange = (field: keyof OrderData, value: any) => {
         setOrderData((prev) => ({ ...prev, [field]: value }));
